@@ -9,11 +9,7 @@ import SwiftUI
 
 struct CodeView: View {
     @State var gameCode: String = ""
-    @State var userCanContinue: Bool = false
     
-    init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(.primary)
-    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,14 +20,16 @@ struct CodeView: View {
                     TextField("Código", text: $gameCode)
                         .textFieldStyle(FunnyTextField())
                         .padding(.horizontal, padding)
-                        .onChange(of: gameCode, perform: { _ in
-                            userCanContinue = !gameCode.isEmpty
-                        })
+                        .textCase(.uppercase)
+                        .autocapitalization(.allCharacters)
                     RealisticButton(
                         "Continuar",
-                        backgroundColor: userCanContinue ? Color.secondary : Color.secondary.opacity(0.35)
+                        backgroundColor: Color.secondary,
+                        isDisabled: gameCode.isEmpty
                     )
+                    .textCase(.uppercase)
                         .padding(.horizontal, padding)
+                        .disabled(gameCode.isEmpty)
                     
                     Spacer()
                     RegularText(

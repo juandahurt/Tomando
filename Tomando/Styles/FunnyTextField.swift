@@ -14,11 +14,5 @@ struct FunnyTextField: TextFieldStyle {
             .background(Color.text)
             .font(.custom("Lato-Regular", size: 20))
             .foregroundColor(.gray)
-            .multilineTextAlignment(.center)
-//            .overlay(
-//                Rectangle()
-//                    .stroke()
-//                    .shadow(color: Color.black.opacity(0.5), radius: 4, x: 4, y: 4)
-//            )
-    }
+            .multilineTextAlignment(.center)    }
 }
