@@ -17,4 +17,6 @@ extension Color {
     static var text = Color("Text")
     
     static var error = Color("Error")
+    
+    static var accept = Color("Accept")
 }

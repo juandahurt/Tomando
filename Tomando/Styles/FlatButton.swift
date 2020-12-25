@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RealButton: ButtonStyle {
+struct FlatButton: ButtonStyle {
     var backgroundColor: Color
     var foregroundColor: Color
     

@@ -24,12 +24,12 @@ struct RealisticButton: View {
         Button(text) {
             print("Buscando...")
         }
-            .buttonStyle(
-                RealButton(
-                    backgroundColor: .secondary,
-                    foregroundColor: .white,
-                    isDisabled: isDisabled
-                )
-            )
+//            .buttonStyle(
+//                FlatButton(
+//                    backgroundColor: .secondary,
+//                    foregroundColor: .white,
+//                    isDisabled: isDisabled
+//                )
+//            )
     }
 }

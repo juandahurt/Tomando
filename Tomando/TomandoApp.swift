@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct TomandoApp: App {
     init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(.primary)
+//        UINavigationBar.appearance().backgroundColor = UIColor(.primary)
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
