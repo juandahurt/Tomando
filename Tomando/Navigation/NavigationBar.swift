@@ -15,6 +15,6 @@ struct NavigationBar: View {
             BackButton(presentationMode: presentationMode)
             Spacer()
         }
-        .padding([.horizontal, .vertical], 20)
+        .padding([.horizontal, .vertical], 15)
     }
 }
