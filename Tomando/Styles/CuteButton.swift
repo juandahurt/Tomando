@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FlatButton: ButtonStyle {
+struct CuteButton: ButtonStyle {
     var backgroundColor: Color
     var foregroundColor: Color
     
@@ -16,8 +16,8 @@ struct FlatButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .frame(maxWidth: .infinity, maxHeight: 30)
-            .padding(10)
+            .font(.primary(size: 20))
+            .frame(maxWidth: .infinity, maxHeight: 51)
             .foregroundColor(
                 isDisabled ? foregroundColor.opacity(opacityWhenDisabled)
                     : foregroundColor.opacity(configuration.isPressed ? opacityWhenPressed : 1)
@@ -26,9 +26,9 @@ struct FlatButton: ButtonStyle {
                 isDisabled ? backgroundColor.opacity(opacityWhenDisabled)
                     : backgroundColor.opacity(configuration.isPressed ? opacityWhenPressed : 1)
             )
-            .font(.custom("Lato-Regular", size: 20))
+            .cornerRadius(10)
     }
     
-    let opacityWhenPressed: Double = 0.9
-    let opacityWhenDisabled: Double = 0.5
+    let opacityWhenPressed: Double = 0.7
+    let opacityWhenDisabled: Double = 0.6
 }

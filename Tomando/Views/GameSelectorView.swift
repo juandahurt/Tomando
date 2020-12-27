@@ -10,35 +10,40 @@ import SwiftUI
 struct GameSelectorView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var bar: Bar = Bar()
-    @State var selectedGame: DrinkingGame? = nil
+    @ObservedObject var mainViewModel: MainViewModel = MainViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                NavigationBar(presentationMode: presentationMode)
+                NavigationBar(
+                    leading: BackButton(presentationMode: presentationMode),
+                    trailing: BackButton(presentationMode: presentationMode).hidden()
+                )
                 Spacer()
-                ForEach(bar.games) { game in
+                ForEach(mainViewModel.games) { game in
                     GameCardView(
                         actionWhenTouched: {
-                            selectedGame = game
+                            mainViewModel.select(game: game)
                         },
                         game: game,
-                        selected: selectedGame?.id == game.id
+                        selected: mainViewModel.currentGame?.id == game.id
                     )
                 }
                 Spacer()
                 
-                NavigationLink(destination: ParticipantsView()) {
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.accept.opacity(selectedGame == nil ? 0.35 : 1))
-                            .cornerRadius(10)
-                            .frame(maxWidth: .infinity, maxHeight: 51)
-                            .padding(eontinueButtonPadding)
+                NavigationLink(destination: AttendantsView(mainViewModel: mainViewModel)) {
+                    DisabableArea(isDisabled: mainViewModel.currentGame == nil) {
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.accept)
+                            RegularText("Continuar")
+                        }
+                        .cornerRadius(10)
+                        .frame(maxWidth: .infinity, maxHeight: 51)
+                        .padding(continueButtonPadding)
                     }
                 }
-                .disabled(selectedGame == nil)
+                .disabled(mainViewModel.currentGame == nil)
             }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.primary)
@@ -47,5 +52,5 @@ struct GameSelectorView: View {
             .navigationBarHidden(true)
     }
     
-    let eontinueButtonPadding = EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20)
+    let continueButtonPadding = EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20)
 }

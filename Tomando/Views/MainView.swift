@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainView<Game: DrinkingGame>: View {
     
     var body: some View {
         GeometryReader { geometry in

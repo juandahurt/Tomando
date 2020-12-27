@@ -10,13 +10,16 @@ import Foundation
 class DrinkingGame: Identifiable {
     var id: Int
     var name: String
+    var players: [Player]
+    var minPlayers: Int
     
-    init(id: Int, name: String) {
+    init(id: Int, name: String, minPlayers: Int) {
         self.id = id
         self.name = name
+        self.players = []
+        self.minPlayers = minPlayers
     }
+    
+    func add(attendant name: String) { }
 }
 
-extension DrinkingGame {
-    static var threeman = Threeman(id: 1, name: "Threeman")
-}
