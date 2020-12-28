@@ -10,4 +10,5 @@ import Foundation
 struct Player: Identifiable {
     var id: Int
     var name: String
+    var location: Int?
 }

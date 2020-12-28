@@ -10,13 +10,14 @@ import SwiftUI
 struct CuteButton: ButtonStyle {
     var backgroundColor: Color
     var foregroundColor: Color
+    var font: Font
     
     var isDisabled: Bool
     
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .font(.primary(size: 20))
+            .font(font)
             .frame(maxWidth: .infinity, maxHeight: 51)
             .foregroundColor(
                 isDisabled ? foregroundColor.opacity(opacityWhenDisabled)

@@ -35,7 +35,7 @@ struct Modal<Content: View>: View {
                             .cornerRadius(10)
                         VStack {
                             HStack {
-                                RegularText(title, color: .primary, font: .primary(size: 18))
+                                CuteText(title, color: .primary, font: .primary(size: 18))
                                 Spacer()
                                 TouchableArea(action: { isPresented.wrappedValue = false }) {
                                     Image("Close")

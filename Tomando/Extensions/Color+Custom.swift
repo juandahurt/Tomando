@@ -19,4 +19,6 @@ extension Color {
     static var error = Color("Error")
     
     static var accept = Color("Accept")
+    
+    static var wood = Color("Wood")
 }

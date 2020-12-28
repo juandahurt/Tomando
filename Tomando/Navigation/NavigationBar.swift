@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct NavigationBar<L, T>: View where L: View, T: View {
+struct NavigationBar<L, C, T>: View where L: View, C: View, T: View {
     var leadingView: L
-    var title: String
+    var center: C
     var trailingView: T
     
-    init(leading: L, title: String = "", trailing: T) {
+    init(leading: L, center: C, trailing: T) {
         self.leadingView = leading
-        self.title = title
+        self.center = center
         self.trailingView = trailing
     }
     
@@ -22,10 +22,10 @@ struct NavigationBar<L, T>: View where L: View, T: View {
         HStack {
             leadingView
             Spacer()
-            RegularText(title)
+            center
             Spacer()
             trailingView
         }
-        .padding([.horizontal, .vertical], 15)
+        .padding(.horizontal, 15)
     }
 }

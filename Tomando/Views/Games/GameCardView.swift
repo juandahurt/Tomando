@@ -20,17 +20,24 @@ struct GameCardView: View {
                     .cornerRadius(10)
                 HStack {
                     VStack {
-                        RegularText(game.name, font: Font.primary(size: 22))
+                        CuteText(game.name, font: Font.primary(size: 22, isBold: true))
                         Image(game.name)
                         Spacer()
-                        RegularText("Jugadores: \(game.minPlayers)+", font: Font.primary(size: 12))
-                            .padding(.trailing, 20)
+                        HStack(spacing: 3) {
+                            CuteText("Jugadores: ", font: Font.primary(size: 12))
+                            CuteText("\(game.minPlayers)+", font: Font.primary(size: 12, isBold: true))
+                        }
                     }
                         .padding()
-                    Rectangle()
-                        .fill(Color.text)
-                        .cornerRadius(10, corners: .topRight)
-                        .cornerRadius(10, corners: .bottomRight)
+                    ZStack {
+                        Rectangle()
+                            .fill(Color.text)
+                            .cornerRadius(10, corners: .topRight)
+                            .cornerRadius(10, corners: .bottomRight)
+                        VStack(alignment: .leading) {
+                            CuteText("Aqui deberian ir la reglas", color: .primary)
+                        }
+                    }
                 }
             }
             .frame(width: UIScreen.main.bounds.width - 40, height: 265)

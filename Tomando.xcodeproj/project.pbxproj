@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D178F732596B1240074BEA7 /* PlayersView.swift */; };
+		3D17F670259A829500D430FA /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */; };
 		3D1CFB4F2597A88400A79A5B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CFB4E2597A88400A79A5B /* Player.swift */; };
 		3D1CFB572597B6D300A79A5B /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CFB562597B6D300A79A5B /* Bar.swift */; };
 		3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BB72594F78B00B6DA31 /* TomandoApp.swift */; };
@@ -21,8 +22,9 @@
 		3D369BE9259531D100B6DA31 /* Font+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BE8259531D100B6DA31 /* Font+Custom.swift */; };
 		3D38DC9A259548C600EA0B02 /* GameSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38DC99259548C600EA0B02 /* GameSelectorView.swift */; };
 		3D6A0DC3259807FB00BA7BFB /* DisabableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A0DC2259807FB00BA7BFB /* DisabableArea.swift */; };
-		3D7335AD259541CB005BA913 /* RegularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7335AC259541CB005BA913 /* RegularText.swift */; };
+		3D7335AD259541CB005BA913 /* CuteText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7335AC259541CB005BA913 /* CuteText.swift */; };
 		3D74F5712597C2430091F74A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74F5702597C2430091F74A /* Modal.swift */; };
+		3D882FD6259962DD00100183 /* Double+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D882FD5259962DD00100183 /* Double+Radians.swift */; };
 		3DAE9B982596B65D00323156 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE9B972596B65D00323156 /* GameCardView.swift */; };
 		3DC46104259688E500B214EF /* TouchableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC46103259688E500B214EF /* TouchableArea.swift */; };
 		3DC4610825968E3A00B214EF /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC4610725968E3A00B214EF /* BackButton.swift */; };
@@ -32,10 +34,12 @@
 		3DC4611C2596ACBF00B214EF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC4611B2596ACBF00B214EF /* MainViewModel.swift */; };
 		3DCA154A2598D9AE00CFE47A /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA15492598D9AE00CFE47A /* RoundedCorner.swift */; };
 		3DCA154D2598DAE000CFE47A /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA154C2598DAE000CFE47A /* View+CornerRadius.swift */; };
+		3DCA15512599097A00CFE47A /* PlayersLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA15502599097A00CFE47A /* PlayersLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D178F732596B1240074BEA7 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		3D1CFB4E2597A88400A79A5B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3D1CFB562597B6D300A79A5B /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		3D369BB42594F78B00B6DA31 /* Tomando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomando.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +55,9 @@
 		3D369BE8259531D100B6DA31 /* Font+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Custom.swift"; sourceTree = "<group>"; };
 		3D38DC99259548C600EA0B02 /* GameSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectorView.swift; sourceTree = "<group>"; };
 		3D6A0DC2259807FB00BA7BFB /* DisabableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabableArea.swift; sourceTree = "<group>"; };
-		3D7335AC259541CB005BA913 /* RegularText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularText.swift; sourceTree = "<group>"; };
+		3D7335AC259541CB005BA913 /* CuteText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteText.swift; sourceTree = "<group>"; };
 		3D74F5702597C2430091F74A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		3D882FD5259962DD00100183 /* Double+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Radians.swift"; sourceTree = "<group>"; };
 		3DAE9B972596B65D00323156 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
 		3DC46103259688E500B214EF /* TouchableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchableArea.swift; sourceTree = "<group>"; };
 		3DC4610725968E3A00B214EF /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 		3DC4611B2596ACBF00B214EF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3DCA15492598D9AE00CFE47A /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		3DCA154C2598DAE000CFE47A /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		3DCA15502599097A00CFE47A /* PlayersLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +127,9 @@
 		3D369BC72594F7B500B6DA31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3DCA154F2599095300CFE47A /* MainMenu */,
 				3DAE9B962596B63F00323156 /* Games */,
 				3D369BC82594F7F100B6DA31 /* MainView.swift */,
-				3D38DC99259548C600EA0B02 /* GameSelectorView.swift */,
-				3D178F732596B1240074BEA7 /* PlayersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,7 +137,7 @@
 		3D369BCB2594F85700B6DA31 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3D7335AC259541CB005BA913 /* RegularText.swift */,
+				3D7335AC259541CB005BA913 /* CuteText.swift */,
 				3DC46103259688E500B214EF /* TouchableArea.swift */,
 				3D74F5702597C2430091F74A /* Modal.swift */,
 				3D6A0DC2259807FB00BA7BFB /* DisabableArea.swift */,
@@ -153,6 +158,7 @@
 		3D369BD52595238400B6DA31 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */,
 				3D369BDC259525A600B6DA31 /* Lato-Regular.ttf */,
 			);
 			path = Fonts;
@@ -164,6 +170,7 @@
 				3D369BCE2595077D00B6DA31 /* Color+Custom.swift */,
 				3D369BE8259531D100B6DA31 /* Font+Custom.swift */,
 				3DCA154C2598DAE000CFE47A /* View+CornerRadius.swift */,
+				3D882FD5259962DD00100183 /* Double+Radians.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,6 +209,16 @@
 				3DC4611B2596ACBF00B214EF /* MainViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3DCA154F2599095300CFE47A /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3D38DC99259548C600EA0B02 /* GameSelectorView.swift */,
+				3D178F732596B1240074BEA7 /* PlayersView.swift */,
+				3DCA15502599097A00CFE47A /* PlayersLocationView.swift */,
+			);
+			path = MainMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D17F670259A829500D430FA /* Lato-Bold.ttf in Resources */,
 				3D369BBF2594F78C00B6DA31 /* Preview Assets.xcassets in Resources */,
 				3D369BDD259525A600B6DA31 /* Lato-Regular.ttf in Resources */,
 				3D369BBC2594F78C00B6DA31 /* Assets.xcassets in Resources */,
@@ -275,11 +293,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1CFB572597B6D300A79A5B /* Bar.swift in Sources */,
+				3DCA15512599097A00CFE47A /* PlayersLocationView.swift in Sources */,
 				3DAE9B982596B65D00323156 /* GameCardView.swift in Sources */,
 				3DC46104259688E500B214EF /* TouchableArea.swift in Sources */,
 				3DCA154D2598DAE000CFE47A /* View+CornerRadius.swift in Sources */,
 				3DC461182596AB7C00B214EF /* Threeman.swift in Sources */,
 				3D369BC92594F7F100B6DA31 /* MainView.swift in Sources */,
+				3D882FD6259962DD00100183 /* Double+Radians.swift in Sources */,
 				3DC4610825968E3A00B214EF /* BackButton.swift in Sources */,
 				3DCA154A2598D9AE00CFE47A /* RoundedCorner.swift in Sources */,
 				3D6A0DC3259807FB00BA7BFB /* DisabableArea.swift in Sources */,
@@ -292,7 +312,7 @@
 				3D369BCF2595077D00B6DA31 /* Color+Custom.swift in Sources */,
 				3D369BE125952C7B00B6DA31 /* CuteTextField.swift in Sources */,
 				3DC4611C2596ACBF00B214EF /* MainViewModel.swift in Sources */,
-				3D7335AD259541CB005BA913 /* RegularText.swift in Sources */,
+				3D7335AD259541CB005BA913 /* CuteText.swift in Sources */,
 				3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */,
 				3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */,
 				3DC4611025969C2B00B214EF /* NavigationBar.swift in Sources */,

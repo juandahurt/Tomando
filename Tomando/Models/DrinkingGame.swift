@@ -20,6 +20,17 @@ class DrinkingGame: Identifiable {
         self.minPlayers = minPlayers
     }
     
-    func add(attendant name: String) { }
+    func add(player name: String) {
+        let id = players.count
+        let newPlayer = Player(id: id, name: name)
+        players.append(newPlayer)
+    }
+    
+    func setLocation(for player: Player, at location: Int) {
+        let playerIndex = self.players.firstIndex {
+            $0.id == player.id
+        }
+        players[playerIndex!].location = location
+    }
 }
 

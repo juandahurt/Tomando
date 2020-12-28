@@ -16,7 +16,7 @@ struct BackButton: View {
         }) {
             ZStack {
                 Circle()
-                    .fill(Color.link)
+                    .fill(Color.primary)
                     .frame(width: 50, height: 50)
                 Image("Back")
             }

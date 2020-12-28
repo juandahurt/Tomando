@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Font {
-    static func primary(size: CGFloat) -> Font {
-        .custom("Lato-Regular", size: size)
+    static func primary(size: CGFloat, isBold: Bool = false) -> Font {
+        isBold ? Font.custom("Lato-Bold", size: size) : .custom("Lato-Regular", size: size)
     }
 }

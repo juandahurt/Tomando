@@ -10,13 +10,14 @@ import SwiftUI
 struct GameSelectorView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var mainViewModel: MainViewModel = MainViewModel()
+    @ObservedObject var mainViewModel = MainViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 NavigationBar(
                     leading: BackButton(presentationMode: presentationMode),
+                    center: CuteText("Selección de juego", font: Font.primary(size: 22, isBold: true)),
                     trailing: BackButton(presentationMode: presentationMode).hidden()
                 )
                 Spacer()
@@ -31,12 +32,12 @@ struct GameSelectorView: View {
                 }
                 Spacer()
                 
-                NavigationLink(destination: AttendantsView(mainViewModel: mainViewModel)) {
+                NavigationLink(destination: PlayersView(mainViewModel: mainViewModel)) {
                     DisabableArea(isDisabled: mainViewModel.currentGame == nil) {
                         ZStack {
                             Rectangle()
-                                .fill(Color.accept)
-                            RegularText("Continuar")
+                                .fill(Color.secondary)
+                            CuteText("Continuar", font: Font.primary(size: 20, isBold: true))
                         }
                         .cornerRadius(10)
                         .frame(maxWidth: .infinity, maxHeight: 51)

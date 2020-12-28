@@ -19,7 +19,7 @@ class MainViewModel: ObservableObject {
     }
     
     var games: [DrinkingGame] {
-        [Threeman(id: 1, name: "Threeman", minPlayers: 3)]
+        [Threeman(id: 1, name: "Three man", minPlayers: 3)]
     }
     
     var players: [Player] {
@@ -31,7 +31,11 @@ class MainViewModel: ObservableObject {
         bar.select(game: game)
     }
     
-    func add(attendant: String) {
-        bar.currentGame?.add(attendant: attendant)
+    func add(player: String) {
+        bar.currentGame?.add(player: player)
+    }
+    
+    func setLocation(for player: Player, at location: Int) {
+        bar.currentGame?.setLocation(for: player, at: location)
     }
 }

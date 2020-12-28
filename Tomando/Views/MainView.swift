@@ -29,9 +29,9 @@ struct MainView<Game: DrinkingGame>: View {
                         Spacer()
                         
                         HStack {
-                            RegularText("1.0.0", color: textColor, font: textFont)
+                            CuteText("1.0.0", color: textColor, font: textFont)
                             Spacer()
-                            RegularText("juandahurt", color: textColor, font: textFont)
+                            CuteText("juandahurt", color: textColor, font: textFont)
                         }
                     }
                         .padding(padding)

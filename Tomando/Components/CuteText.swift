@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegularText: View {
+struct CuteText: View {
     var text: String
     var color: Color
     var font: Font
