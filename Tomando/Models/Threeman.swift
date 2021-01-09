@@ -9,7 +9,17 @@ import Foundation
 
 class Threeman: DrinkingGame {
     override init(id: Int, name: String, minPlayers: Int) {
-        super.init(id: id, name: name, minPlayers: minPlayers)
+        super.init(id: 1, name: "Threeman", minPlayers: 3)
+        self.add(player: "Micho")
+        self.add(player: "Realpe")
+        self.add(player: "Abuelo")
+        self.add(player: "Abuelo")
+        self.add(player: "Abuelo")
+        self.add(player: "Abuelo")
+    }
+    
+    init() {
+        super.init(id: 1, name: "Threeman", minPlayers: 3)
         self.add(player: "Micho")
         self.add(player: "Realpe")
         self.add(player: "Abuelo")

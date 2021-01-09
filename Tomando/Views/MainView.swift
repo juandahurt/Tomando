@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView<Game: DrinkingGame>: View {
+struct MainView: View {
     
     var body: some View {
         GeometryReader { geometry in
@@ -16,15 +16,12 @@ struct MainView<Game: DrinkingGame>: View {
                     Group {
                         Spacer()
                         
-                        NavigationLink(destination: GameSelectorView()) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.accept)
-                                    .frame(width: 178, height: 171)
-                                Image("Play")
-                                    .offset(x: 8, y: 0)
-                            }
+                        NavigationLink(destination: LoadingView(nextView: GameTerminalView(for: Threeman()))) {
+                            Image("Play")
+                                .offset(x: 5, y: 0)
                         }
+                        .buttonStyle(CircularButton(diameter: 178, mainColor: Color("Green"), darkColor: Color("Green-Dark"), lightColor: Color("Green-Light")))
+                        .animation(.none)
                         
                         Spacer()
                         
@@ -44,6 +41,6 @@ struct MainView<Game: DrinkingGame>: View {
     }
     
     let padding = EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
-    let textColor = Color.text.opacity(0.5)
-    let textFont: Font = .primary(size: 14)
+    let textColor = Color.text.opacity(0.4)
+    let textFont: Font = .secondary(size: 12)
 }
