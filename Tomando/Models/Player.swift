@@ -12,3 +12,7 @@ struct Player: Identifiable {
     var name: String
     var location: Int?
 }
+
+extension Player {
+    static var dummy = Player(id: 1, name: "Dummy")
+}

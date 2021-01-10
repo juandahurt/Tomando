@@ -14,19 +14,42 @@ struct Dice: View {
         self.number = number
     }
     
-    func whereDoIHaveToDrawTheCircles(in size: CGSize) -> [CirclePoint] {
-        var points = [CirclePoint]()
+    func whereDoIHaveToDrawTheCircles(in size: CGSize) -> [DicePoint] {
+        var points = [DicePoint]()
         
         switch number {
             case 1:
-                let p1 = CirclePoint(id: 1, point: CGPoint(x: size.width / 2, y: size.height / 2))
-                points.append(p1)
+                points.append(.center)
                 break
             case 2:
-                let p1 = CirclePoint(id: 1, point: CGPoint(x: size.width - 12, y: 17))
-                let p2 = CirclePoint(id: 2, point: CGPoint(x: 12, y: size.height - 17))
-                points.append(p1)
-                points.append(p2)
+                points.append(.topRight)
+                points.append(.bottomLeft)
+                break
+            case 3:
+                points.append(.topRight)
+                points.append(.center)
+                points.append(.bottomLeft)
+                break
+            case 4:
+                points.append(.topLeft)
+                points.append(.topRight)
+                points.append(.bottomLeft)
+                points.append(.bottomRight)
+                break
+            case 5:
+                points.append(.topLeft)
+                points.append(.topRight)
+                points.append(.center)
+                points.append(.bottomLeft)
+                points.append(.bottomRight)
+                break
+            case 6:
+                points.append(.topLeft)
+                points.append(.topRight)
+                points.append(.left)
+                points.append(.right)
+                points.append(.bottomLeft)
+                points.append(.bottomRight)
                 break
             default:
                 points = []
@@ -40,6 +63,7 @@ struct Dice: View {
             .fill(circleColor)
     }
     
+//  MARK: - Body
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
@@ -66,18 +90,39 @@ struct Dice: View {
     let circleDiameter: CGFloat = 18
     let circleColor: Color = Color("Primary")
     let diceSize: CGSize = CGSize(width: 110, height: 110)
-}
-
-struct CirclePoint: Identifiable {
-    var id: Int
-    var point: CGPoint
+    
+    
+//  MARK: - Dice Point
+    struct DicePoint: Identifiable {
+        var id: Int
+        var point: CGPoint
+        
+        static let diceSize: CGSize = CGSize(width: 110, height: 110)
+        static let xOffset: CGFloat = 12
+        static let yOffset: CGFloat = 17
+        static let leftOffset: CGFloat = 5
+        
+        static let topLeft = DicePoint(id: 1, point: CGPoint(x: xOffset + leftOffset, y: yOffset))
+        static let topRight = DicePoint(id: 2, point: CGPoint(x: diceSize.width - xOffset, y: yOffset))
+        static let left = DicePoint(id: 3, point: CGPoint(x: xOffset + leftOffset, y: diceSize.height / 2))
+        static let center = DicePoint(id: 4, point: CGPoint(x: diceSize.width / 2, y: diceSize.height / 2))
+        static let right = DicePoint(id: 5, point: CGPoint(x: diceSize.width - xOffset, y: diceSize.height / 2))
+        static let bottomLeft = DicePoint(id: 6, point: CGPoint(x: xOffset + leftOffset, y: diceSize.height - yOffset))
+        static let bottomRight = DicePoint(id: 7, point: CGPoint(x: diceSize.width - xOffset, y: diceSize.height - yOffset))
+    }
 }
 
 struct Dice_Previews: PreviewProvider {
     static var previews: some View {
-        Dice(facing: 2)
+        VStack {
+            Dice(facing: 1)
+            Dice(facing: 2)
+            Dice(facing: 3)
+            Dice(facing: 4)
+            Dice(facing: 5)
+            Dice(facing: 6)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("Primary"))
     }
 }
-
-
-

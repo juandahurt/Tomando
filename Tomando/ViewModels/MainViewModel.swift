@@ -1,41 +1,41 @@
+////
+////  File.swift
+////  Tomando
+////
+////  Created by juandahurt on 25/12/20.
+////
 //
-//  File.swift
-//  Tomando
+//import Foundation
 //
-//  Created by juandahurt on 25/12/20.
-//
-
-import Foundation
-
-class MainViewModel: ObservableObject {
-    @Published private(set) var bar: Bar
-    
-    init() {
-        bar = Bar(currentGame: nil)
-    }
-    
-    var currentGame: DrinkingGame? {
-        bar.currentGame
-    }
-    
-    var games: [DrinkingGame] {
-        [Threeman(id: 1, name: "Three man", minPlayers: 3)]
-    }
-    
-    var players: [Player] {
-        bar.currentGame?.players ?? []
-    }
-    
-    
-    func select(game: DrinkingGame) {
-        bar.select(game: game)
-    }
-    
-    func add(player: String) {
-        bar.currentGame?.add(player: player)
-    }
-    
-    func setLocation(for player: Player, at location: Int) {
-        bar.currentGame?.setLocation(for: player, at: location)
-    }
-}
+//class MainViewModel: ObservableObject {
+//    @Published private(set) var currentGame: DrinkingGame<DrinkingGameState>
+//    
+//    init() {
+//        bar = Bar(currentGame: nil)
+//    }
+//    
+//    var currentGame: DrinkingGame<DrinkingGameState>? {
+//        currentGame
+//    }
+//    
+//    var games: [DrinkingGame<DrinkingGameState>] {
+//        [Threeman()]
+//    }
+//    
+//    var players: [Player] {
+//        bar.currentGame?.players ?? []
+//    }
+//    
+//    
+//    func select(game: DrinkingGame<DrinkingGameState>) {
+//        bar.select(game: game)
+//    }
+//    
+//    func add(player: String) {
+//        bar.currentGame?.add(player: player)
+//    }
+//    
+//    func setLocation(for player: Player, at location: Int) {
+//        bar.currentGame?.setLocation(for: player, at: location)
+//    }
+//}
