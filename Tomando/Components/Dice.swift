@@ -98,7 +98,7 @@ struct Dice: View {
         var point: CGPoint
         
         static let diceSize: CGSize = CGSize(width: 110, height: 110)
-        static let xOffset: CGFloat = 12
+        static let xOffset: CGFloat = 16
         static let yOffset: CGFloat = 17
         static let leftOffset: CGFloat = 5
         

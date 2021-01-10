@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameBoard<Content: View>: View {
-    var title: String = "Titulo"
+    var title: String
     var leftPlayer: Player = .dummy
     var rightPlayer: Player = .dummy
     
@@ -20,7 +20,8 @@ struct GameBoard<Content: View>: View {
     
     var content: Content
     
-    init(disabled: Bool, mainButtonIsDisabled: Bool, mainButtonText: String, mainButtonAction: @escaping () -> Void, content: () -> Content) {
+    init(title: String = "Dummy", disabled: Bool, mainButtonIsDisabled: Bool, mainButtonText: String, mainButtonAction: @escaping () -> Void, content: () -> Content) {
+        self.title = title
         self.disabled = disabled
         self.mainButtonIsDisabled = mainButtonIsDisabled
         self.mainButtonText = mainButtonText
@@ -36,7 +37,9 @@ struct GameBoard<Content: View>: View {
                     .fill(disabledColor)
                     .frame(width: 144, height: 22)
             } else {
-                CuteText("Abuelo, tú empiezas", color: .white, font: .primary(size: 20))
+                CuteText(title, color: .white, font: .primary(size: 20))
+                    .transition(.slide)
+                    .animation(.easeIn)
             }
         }
     }
@@ -83,6 +86,7 @@ struct GameBoard<Content: View>: View {
                 disabled: mainButtonIsDisabled
             )
         )
+        .disabled(mainButtonIsDisabled)
     }
     
 //  MARK: - Body
@@ -92,7 +96,7 @@ struct GameBoard<Content: View>: View {
                 .padding(.top, 55)
             ZStack {
                 Rectangle()
-                    .fill(disabledColor)
+                    .fill(disabled ? disabledColor : color)
                     .cornerRadius(15)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 GeometryReader { _ in
@@ -119,6 +123,7 @@ struct GameBoard<Content: View>: View {
     
     let backgroundColor = Color("Primary")
     let disabledColor = Color("White-Dark").opacity(0.1)
+    let color = Color("Green").opacity(0.7)
 }
 
 struct GameBoard_Previews: PreviewProvider {

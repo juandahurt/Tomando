@@ -17,26 +17,23 @@ class Threeman: DrinkingGame<ThreemanState, ThreemanRule> {
         print("state: \(currentState.dices)")
     }
     
-    override func next(completion: @escaping () -> Void) {
+    override func next(completion: @escaping ([ThreemanRule]) -> Void) {
         currentState.rollDices()
         print(currentState.dices)
-        validateRules()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            completion()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .random(in: 1.5...2.5)) {
+            completion(self.validateRules())
         }
     }
     
     override func validateRules() -> [ThreemanRule] {
         var rules = [ThreemanRule]()
-        
+
         for rule in ThreemanRule.rules {
             if rule.validator(currentState) {
                 rules.append(rule)
             }
         }
-        
-        print(rules)
-        
+
         return rules
     }
 }

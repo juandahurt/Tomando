@@ -7,12 +7,8 @@
 
 import Foundation
 
-protocol DrinkingGameState {
-    var action: Action { get set }
-}
+protocol DrinkingGameState {}
 
-enum Action {
-    case unknown
-    case drink
-    case notDrink
-}
+// A decir verdad, no supe qué poner aquí
+
+// TODO: Poner algo

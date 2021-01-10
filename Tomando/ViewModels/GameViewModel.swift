@@ -22,7 +22,7 @@ class GameViewModel<Game: DrinkingGame<GameState, GameRule>, GameState: Drinking
         game.start()
     }
     
-    func next(completion: @escaping () -> Void) {
+    func next(completion: @escaping ([GameRule]) -> Void) {
         game.next(completion: completion)
     }
 }

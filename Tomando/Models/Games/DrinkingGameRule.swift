@@ -11,4 +11,5 @@ protocol DrinkingGameRule {
     associatedtype GameState: DrinkingGameState
     
     var validator: (GameState) -> Bool { get set }
+    var result: String { get }
 }

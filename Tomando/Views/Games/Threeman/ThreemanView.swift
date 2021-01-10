@@ -10,7 +10,11 @@ import SwiftUI
 struct ThreemanView: View {
     @ObservedObject var gameViewModel = GameViewModel(game: Threeman())
     
+    @State var title: String = "Abuelo, es tu turno"
     @State var isLoading = false
+    @State var showNumber = false
+    
+    @State var activeRules = [ThreemanRule]()
     
     init() {
         gameViewModel.start()
@@ -35,22 +39,47 @@ struct ThreemanView: View {
     }
     
     func mainButtonAction() {
+        title = "Atentos..."
         isLoading = true
-        gameViewModel.next() {
+        showNumber = false
+        activeRules.removeAll()
+        
+        gameViewModel.next() { rules in
+            title = rules.count == 1 && rules[0].nextToDrink == .noOne ? ".  .  ." : "Abuelo, es tu turno"
             isLoading = false
+            showNumber = true
+            
+            activeRules = rules
         }
     }
     
     var _body: some View {
         VStack {
-            Spacer()
+            CuteText(
+                showNumber ? String(gameViewModel.currentState.dices.reduce(0, +)) : "",
+                color: Color("Primary").opacity(0.5),
+                font: Font.primary(size: 40, isBold: true)
+            )
+                .padding(.vertical)
             dices
-            Spacer()
+            VStack(spacing: 10) {
+                Spacer()
+                ForEach(activeRules) { rule in
+                    CuteText(
+                        rule.result,
+                        color: rule.nextToDrink == .threeman ? Color("Primary") : Color.white,
+                        font: Font.primary(size: 20, isBold: true)
+                    )
+                }
+                Spacer()
+            }
+                .padding(.top, 47)
         }
     }
     
     var body: some View {
         GameBoard(
+            title: title,
             disabled: false,
             mainButtonIsDisabled: isLoading,
             mainButtonText: "Rodar",

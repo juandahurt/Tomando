@@ -27,7 +27,7 @@ class DrinkingGame<GameState, GameRule>: Identifiable where GameState: DrinkingG
     
     func start() {}
     
-    func next(completion: @escaping () -> Void) {}
+    func next(completion: @escaping ([GameRule]) -> Void) {}
     
     func validateRules() -> [GameRule] { return [] }
 }
