@@ -8,13 +8,8 @@
 import Foundation
 
 class ThreemanState: DrinkingGameState {
-    var dices: [Int]
-    
     init() {
-        dices = [Int.random(in: 1...6), Int.random(in: 1...6)]
-    }
-    
-    func rollDices() {
-        dices = [Int.random(in: 1...6), Int.random(in: 1...6)]
+        let random = [Int.random(in: 1...6), Int.random(in: 1...6)]
+        super.init(initialValue: random)
     }
 }

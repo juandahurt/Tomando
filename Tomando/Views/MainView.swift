@@ -13,26 +13,46 @@ struct MainView: View {
         GeometryReader { geometry in
             NavigationView {
                 VStack {
-                    Group {
-                        Spacer()
-                        
-                        NavigationLink(destination: LoadingView(nextView: GameTerminalView(for: Threeman()))) {
-                            Image("Play")
-                                .offset(x: 5, y: 0)
-                        }
-                        .buttonStyle(CircularButton(diameter: 178, mainColor: Color("Green"), darkColor: Color("Green-Dark"), lightColor: Color("Green-Light")))
-                        .animation(.none)
-                        
-                        Spacer()
-                        
-                        HStack {
-                            CuteText("1.0.0", color: textColor, font: textFont)
-                            Spacer()
-                            CuteText("juandahurt", color: textColor, font: textFont)
+                    Spacer()
+                    
+                    NavigationLink(destination: GameSelectorView()) {
+                        Button("Empezar") {
+                            
                         }
                     }
-                        .padding(padding)
+                    .buttonStyle(
+                        CutePrimaryButton(
+                            mainColor: Color("Green"),
+                            darkColor: Color("Green-Dark"),
+                            lightColor: Color("Green-Light"),
+                            font: .primary(size: 20, isBold: true)
+                        )
+                    )
+                    .padding(.horizontal, 50)
+                    .animation(.none)
+                    
+                    NavigationLink(destination: GameSelectorView()) {
+                        Button("Creditos") {
+                            
+                        }.buttonStyle(
+                            CuteSecondaryButton(
+                                font: .primary(size: 20, isBold: true)
+                            )
+                        )
+                    }
+                    .padding(.horizontal, 50)
+                    .padding(.top)
+                    .animation(.none)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        CuteText("1.0.0", color: textColor, font: textFont)
+                        Spacer()
+                        CuteText("juandahurt", color: textColor, font: textFont)
+                    }
                 }
+                    .padding(padding)
                     .navigationBarHidden(true)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.primary)

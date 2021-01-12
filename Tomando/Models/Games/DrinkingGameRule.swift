@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol DrinkingGameRule {
-    associatedtype GameState: DrinkingGameState
-    
-    var validator: (GameState) -> Bool { get set }
-    var result: String { get }
+class DrinkingGameRule {
+//    var validator: (DrinkingGameState) -> Bool { get set }
+//    var result: String { get }
 }

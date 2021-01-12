@@ -32,16 +32,16 @@ struct GameBoard<Content: View>: View {
 //  MARK: - Title
     var titleContainer: some View {
         Group {
-            if disabled {
+            if disabled || title.isEmpty {
                 Rectangle()
-                    .fill(disabledColor)
+                    .fill(disabled ? disabledColor : Color.clear)
                     .frame(width: 144, height: 22)
             } else {
-                CuteText(title, color: .white, font: .primary(size: 20))
+                CuteText(title, color: Color.white.opacity(0.25), font: .primary(size: 20, isBold: true))
                     .transition(.slide)
                     .animation(.easeIn)
             }
-        }
+        }.frame(width: UIScreen.main.bounds.width)
     }
 
 //  MARK: - Players Container
@@ -76,7 +76,7 @@ struct GameBoard<Content: View>: View {
             mainButtonAction()
         }
         .buttonStyle(
-            CircularButton(
+            CuteCircularButton(
                 diameter: 78,
                 yOffset: 5,
                 mainColor: Color("Blue"),
@@ -124,20 +124,4 @@ struct GameBoard<Content: View>: View {
     let backgroundColor = Color("Primary")
     let disabledColor = Color("White-Dark").opacity(0.1)
     let color = Color("Green").opacity(0.7)
-}
-
-struct GameBoard_Previews: PreviewProvider {
-    static var previews: some View {
-        GameBoard(
-            disabled: false,
-            mainButtonIsDisabled: false,
-            mainButtonText: "Texto",
-            mainButtonAction: {
-                print("holi")
-            }) {
-            VStack {
-                Text("Contenido del tablero")
-            }
-        }
-    }
 }

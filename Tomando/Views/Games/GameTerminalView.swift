@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct GameTerminalView<Game: DrinkingGame<GameState, GameRule>, GameState: DrinkingGameState, GameRule: DrinkingGameRule>: View {
-    var game: Game
+struct GameTerminalView: View {
+    var game: DrinkingGame
     
     @State var goToNextViewClicked = false
     
@@ -16,7 +16,7 @@ struct GameTerminalView<Game: DrinkingGame<GameState, GameRule>, GameState: Drin
     
 //    TODO: Mostrar todos los mensajes
     
-    init(for game: Game) {
+    init(for game: DrinkingGame) {
         self.game = game
     }
     
@@ -39,7 +39,7 @@ struct GameTerminalView<Game: DrinkingGame<GameState, GameRule>, GameState: Drin
     @ViewBuilder
     var body: some View {
         if goToNextViewClicked {
-            ThreemanView()
+//            ThreemanView()
         } else {
             _body
         }

@@ -7,8 +7,10 @@
 
 import Foundation
 
-protocol DrinkingGameState {}
-
-// A decir verdad, no supe qué poner aquí
-
-// TODO: Poner algo
+class DrinkingGameState {
+    var value: Any?
+    
+    init(initialValue: Any?) {
+        self.value = initialValue
+    }
+}

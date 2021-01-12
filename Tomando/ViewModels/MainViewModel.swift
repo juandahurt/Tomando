@@ -1,13 +1,13 @@
-////
-////  File.swift
-////  Tomando
-////
-////  Created by juandahurt on 25/12/20.
-////
 //
-//import Foundation
+//  File.swift
+//  Tomando
 //
-//class MainViewModel: ObservableObject {
+//  Created by juandahurt on 25/12/20.
+//
+
+import Foundation
+
+class MainViewModel: ObservableObject {
 //    @Published private(set) var currentGame: DrinkingGame<DrinkingGameState>
 //    
 //    init() {
@@ -18,9 +18,9 @@
 //        currentGame
 //    }
 //    
-//    var games: [DrinkingGame<DrinkingGameState>] {
-//        [Threeman()]
-//    }
+    var games: [DrinkingGame] {
+        [Threeman(), DrinkingGame.disabled]
+    }
 //    
 //    var players: [Player] {
 //        bar.currentGame?.players ?? []
@@ -38,4 +38,4 @@
 //    func setLocation(for player: Player, at location: Int) {
 //        bar.currentGame?.setLocation(for: player, at: location)
 //    }
-//}
+}

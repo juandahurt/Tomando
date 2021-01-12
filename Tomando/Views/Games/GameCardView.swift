@@ -1,50 +1,73 @@
-////
-////  GameCard.swift
-////  Tomando
-////
-////  Created by juandahurt on 25/12/20.
-////
 //
-//import SwiftUI
+//  GameCard.swift
+//  Tomando
 //
-//struct GameCardView: View {
-//    var actionWhenTouched: () -> Void
-//    var game: DrinkingGame<DrinkingGameState>
-//    var selected: Bool
-//    
-//    var body: some View {
-//        TouchableArea(action: actionWhenTouched) {
-//            ZStack {
-//                Rectangle()
-//                    .fill(Color.secondary)
-//                    .cornerRadius(10)
-//                HStack {
-//                    VStack {
-//                        CuteText(game.name, font: Font.primary(size: 22, isBold: true))
-//                        Image(game.name)
-//                        Spacer()
-//                        HStack(spacing: 3) {
-//                            CuteText("Jugadores: ", font: Font.primary(size: 12))
-//                            CuteText("\(game.minPlayers)+", font: Font.primary(size: 12, isBold: true))
-//                        }
-//                    }
-//                        .padding()
-//                    ZStack {
-//                        Rectangle()
-//                            .fill(Color.text)
-//                            .cornerRadius(10, corners: .topRight)
-//                            .cornerRadius(10, corners: .bottomRight)
-//                        VStack(alignment: .leading) {
-//                            CuteText("Aqui deberian ir la reglas", color: .primary)
-//                        }
-//                    }
-//                }
-//            }
-//            .frame(width: UIScreen.main.bounds.width - 40, height: 265)
-//        }
-//        .padding(.bottom, 20)
-//        .opacity(selected ? 1 : opacityWhenNotSelected)
-//    }
-//    
-//    let opacityWhenNotSelected = 0.35
-//}
+//  Created by juandahurt on 25/12/20.
+//
+
+import SwiftUI
+
+struct GameCardView: View {
+    var game: DrinkingGame
+    var disabled: Bool
+    var color: Color
+    var isSelected: Bool
+    
+    init(game: DrinkingGame, isSelected: Bool = false) {
+        self.game = game
+        self.disabled = game == DrinkingGame.disabled
+        self.color = Color("White")
+        self.isSelected = isSelected
+    }
+    
+    var card: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 15)
+                .fill(isSelected ? color.opacity(selectedOpacity) : Color.clear)
+                .frame(width: 131, height: 131)
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(color.opacity(disabled ? disabledOpacity : opacity), lineWidth: 2)
+                .frame(width: 131, height: 131)
+        }
+    }
+    
+    var icon: some View {
+        Group {
+            if disabled {
+                Circle()
+                    .fill(color.opacity(disabledOpacity))
+            } else {
+                Image(game.name)
+                    .resizable()
+            }
+        }
+    }
+    
+    var players: some View {
+        let text = game.minPlayers == -1 ? "?" : String(game.minPlayers) + "+"
+        return CuteText(
+            "Jugadores: " + text,
+            color: color.opacity(disabled ? disabledOpacity : opacity),
+            font: .primary(size: 10, isBold: true)
+        )
+    }
+    
+    var body: some View {
+        ZStack {
+            card
+            VStack {
+                icon
+                    .frame(width: 60, height: 60)
+                CuteText(
+                    game.name, color: color.opacity(disabled ? disabledOpacity : 1),
+                    font: .primary(size: 16, isBold: true)
+                )
+                players
+            }
+        }
+    }
+    
+    let opacity: Double = 0.2
+    let disabledOpacity: Double = 0.1
+    let selectedOpacity: Double = 0.1
+}

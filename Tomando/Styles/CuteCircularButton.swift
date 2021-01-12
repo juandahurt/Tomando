@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircularButton: ButtonStyle {
+struct CuteCircularButton: ButtonStyle {
     var diameter: CGFloat
     var yOffset: CGFloat = 10
     
