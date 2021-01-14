@@ -8,16 +8,55 @@
 import SwiftUI
 
 struct GameTerminalView: View {
-    var game: DrinkingGame
-    
     @State var goToNextViewClicked = false
+    @ObservedObject var gameViewModel: GameViewModel
     
-//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var messageIndex = -1
+    @State var goToNextViewActivated = false
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
 //    TODO: Mostrar todos los mensajes
     
     init(for game: DrinkingGame) {
-        self.game = game
+        self.gameViewModel = GameViewModel(game: game)
+    }
+    
+    func pickTheRightColor(for level: Log.Level) -> Color {
+        switch level {
+            case .alert:
+                return Color("Error")
+            case .warning:
+                return Color("Green")
+            case .info:
+                return Color("White-Dark")
+        }
+    }
+    
+    var tapToStart: some View {
+        let text = goToNextViewActivated ? "Toca cualquier parte de la pantalla para comenzar..." : ""
+        return CuteText(
+            text,
+            font: Font.secondary(size: 12)
+        )
+    }
+    
+    var log: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            ForEach(gameViewModel.log.indices, id: \.self) { index in
+                Group {
+                    if index <= messageIndex {
+                        CuteText(
+                            gameViewModel.log[index].text,
+                            color: pickTheRightColor(for: gameViewModel.log[index].level),
+                            font: Font.secondary(size: 12)
+                        )
+                    }
+                }
+            }
+            tapToStart
+        }
+        .padding()
     }
     
     var _body: some View {
@@ -26,13 +65,23 @@ struct GameTerminalView: View {
             mainButtonIsDisabled: true,
             mainButtonText: "",
             mainButtonAction: {}) {
-            VStack(alignment: .leading) {
-                CuteText("Toca cualquier parte de la pantalla para comenzar...", font: Font.secondary(size: 12))
-            }
-            .padding()
+            log
         }
         .onTapGesture {
-            goToNextViewClicked = true
+            if goToNextViewActivated {
+                goToNextViewClicked = true
+            }
+        }
+        .onAppear() {
+            gameViewModel.objectWillChange.send()
+            gameViewModel.start()
+        }
+        .onReceive(timer) { _ in
+            messageIndex += 1
+            if messageIndex == gameViewModel.log.count {
+                timer.upstream.connect().cancel()
+                goToNextViewActivated = true
+            }
         }
     }
     

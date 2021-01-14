@@ -8,8 +8,31 @@
 import Foundation
 
 class Threeman: DrinkingGame {
+    var threeman: Player?
+    
     init() {
-        super.init(id: 1, name: "Three man", minPlayers: 3, initialState: ThreemanState())
+        let name = "Three man"
+        super.init(id: 1, name: name, minPlayers: 3)
+        self.log.append(.init(text: "Juego seleccionado: \(name)."))
+    }
+    
+    override func start() {
+        self.started = true
+        log.append(.init(text: "Eligiendo aleatoriamente un three man..."))
+        self.threeman = self.players.randomElement()!
+        self.log.append(.init(text: "Threeman seleccionado: \(self.threeman!.name)", level: .alert))
+        self.log.append(.empty)
+        self.log.append(.empty)
+        self.log.append(.empty)
+        self.log.append(.init(text: "\(threeman!.name), dios te ampare."))
+    }
+    
+    override func update() {
+        
+    }
+    
+    override func nextTurn() {
+        
     }
 //    init() {
 //        super.init(id: 1, name: "Three man", minPlayers: 3, initalState: ThreemanState())

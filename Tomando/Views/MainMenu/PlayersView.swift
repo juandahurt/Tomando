@@ -120,7 +120,7 @@ struct PlayersView: View {
                     .padding(.horizontal, 20)
             }
             
-            NavigationLink(destination: LoadingView(players: mainViewModel.players, nextView: MainView())) {
+            NavigationLink(destination: LoadingView(players: mainViewModel.players, nextView: GameTerminalView(for: mainViewModel.currentGame!))) {
                 Text("Continuar")
             }
             .buttonStyle(

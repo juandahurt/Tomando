@@ -7,30 +7,41 @@
 
 import Foundation
 
-class DrinkingGame: Identifiable {
+class DrinkingGame: Identifiable, Logger, StatefulGame {
+    
     static let maxPlayers = 10
+    
+    var log: [Log]
     
     var id: Int
     var name: String
     var players: [Player]
     var minPlayers: Int
 
-    var currentState: DrinkingGameState?
     var rules: [DrinkingGameRule]
 
-    init(id: Int, name: String, minPlayers: Int, initialState: DrinkingGameState? = nil) {
+    var started: Bool
+    var currentPlayer: Player?
+    var currentState: DrinkingGameState?
+    
+    init(id: Int, name: String, minPlayers: Int) {
         self.id = id
         self.name = name
         self.players = []
         self.minPlayers = minPlayers
-        self.currentState = initialState
         self.rules = []
+        self.log = []
+        self.started = false
     }
     
     func add(player name: String) {
         let newPlayer = Player(id: players.count, name: name)
         players.append(newPlayer)
     }
+    
+    func start() -> Void { }
+    func update() -> Void { }
+    func nextTurn() -> Void { }
 }
 
 extension DrinkingGame {
