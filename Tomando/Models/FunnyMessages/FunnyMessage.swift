@@ -31,7 +31,7 @@ extension FunnyMessage {
         FunnyMessage(id: 3, text: "Analizando nivel de alcohol de *"),
         FunnyMessage(id: 4, text: "Esperando a que * deje el celular..."),
         FunnyMessage(id: 5, text: "Verificando que * no llame a su ex..."),
-        FunnyMessage(id: 6, text: "Verificando situación sentimental de * r")
+        FunnyMessage(id: 6, text: "Verificando situación sentimental de *")
     ]
 }
 

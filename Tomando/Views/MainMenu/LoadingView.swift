@@ -102,10 +102,11 @@ struct LoadingView<Content: View>: View {
     
     @ViewBuilder
     var body: some View {
-        if isLoading {
-            _body
-        } else {
-            nextView
-        }
+//        if isLoading {
+//            _body
+//        } else {
+//            nextView
+//        }
+        _body
     }
 }

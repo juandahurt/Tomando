@@ -23,8 +23,8 @@ struct FunnyMessagesProvider {
         var randomMessages = randomElements(from: FunnyMessage.messages, count: numberOfMessages)
     
         randomMessages.insert(.bootingUp, at: 0)
-        for index in 1..<numberOfMessages {
-            randomMessages[index].text = randomMessages[index].text.replacingOccurrences(of: "*", with: randomPlayers[index].name)
+        for index in 1...numberOfMessages {
+            randomMessages[index].text = randomMessages[index].text.replacingOccurrences(of: "*", with: randomPlayers[index-1].name)
         }
         randomMessages.append(.ok)
         
