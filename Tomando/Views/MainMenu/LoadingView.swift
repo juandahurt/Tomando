@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct LoadingView<Content: View>: View {
-    @State var isAnimating = false
-    @State var firstVisibleMessageIndex = 0
-    @State var messageIndex = 0
-    @State var willHideMessages = false
-    @State var isLoading = true
+    @State private var isAnimating = false
+    @State private var firstVisibleMessageIndex = 0
+    @State private var messageIndex = 0
+    @State private var willHideMessages = false
+    @State private var isLoading = true
     
-    @ObservedObject var messagesProvider = FunnyMessagesProvider()
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let terminalHeight: CGFloat = 61
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let terminalHeight: CGFloat = 61
+    @StateObject private var messagesViewModel: FunnyMessagesViewModel
     
     var nextView: Content
+    
+    init(players: [Player], nextView: Content) {
+        self.nextView = nextView
+        self._messagesViewModel = StateObject(wrappedValue: FunnyMessagesViewModel(players: players, numberOfMessages: players.count))
+    }
     
     
     // MARK: - Text
@@ -40,7 +45,7 @@ struct LoadingView<Content: View>: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 3) {
                     Group {
-                        ForEach(messagesProvider.messages) { message in
+                        ForEach(messagesViewModel.messages) { message in
                             Group {
                                 if message.isVisible {
                                     CuteText(message.text, color: Color("White-Dark"), font: .secondary(size: 10))
@@ -59,7 +64,7 @@ struct LoadingView<Content: View>: View {
             }
             .frame(maxWidth: .infinity, maxHeight: terminalHeight)
         }.onReceive(timer) { _ in
-            if messageIndex == messagesProvider.messages.count {
+            if messageIndex == messagesViewModel.messages.count {
                 timer.upstream.connect().cancel()
                 isLoading = false
                 return
@@ -70,11 +75,11 @@ struct LoadingView<Content: View>: View {
             }
             
             if willHideMessages {
-                messagesProvider.hideMessage(at: firstVisibleMessageIndex)
+                messagesViewModel.hideMessage(at: firstVisibleMessageIndex)
                 firstVisibleMessageIndex += 1
             }
             
-            messagesProvider.showMessage(at: messageIndex)
+            messagesViewModel.showMessage(at: messageIndex)
             
             messageIndex += 1
         }

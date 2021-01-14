@@ -38,7 +38,7 @@ struct PlayersView: View {
     }
     
 //  MARK: - Player container
-    func container(for player: Player, dividerVisible: Bool = false) -> some View {
+    func container(for player: Player) -> some View {
         VStack {
             HStack {
                 CuteText(player.name, color: Color("White-Dark").opacity(0.4), font: .primary(size: 16))
@@ -46,11 +46,8 @@ struct PlayersView: View {
                 
             }
             .padding(.vertical)
-            Group {
-                if dividerVisible {
-                    Divider()
-                }
-            }
+            Divider()
+                .background(Color("White-Dark").opacity(0.2))
         }
         .padding(.horizontal)
     }
@@ -64,10 +61,7 @@ struct PlayersView: View {
             ScrollView {
                 VStack {
                     ForEach(mainViewModel.players) { player in
-                        container(
-                            for: player,
-                            dividerVisible: true
-                        )
+                        container(for: player)
                     }
                     Spacer(minLength: 0)
                 }
@@ -126,8 +120,8 @@ struct PlayersView: View {
                     .padding(.horizontal, 20)
             }
             
-            Button("Continuar") {
-                
+            NavigationLink(destination: LoadingView(players: mainViewModel.players, nextView: MainView())) {
+                Text("Continuar")
             }
             .buttonStyle(
                 CutePrimaryButton(

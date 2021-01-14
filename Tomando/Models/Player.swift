@@ -16,3 +16,9 @@ struct Player: Identifiable {
 extension Player {
     static var dummy = Player(id: 1, name: "Dummy")
 }
+
+extension Player: Equatable {
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.id == rhs.id
+    }
+}

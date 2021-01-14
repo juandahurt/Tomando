@@ -7,11 +7,13 @@
 
 import Foundation
 
-class FunnyMessagesProvider: ObservableObject {
+class FunnyMessagesViewModel: ObservableObject {
     @Published private(set) var messages: [FunnyMessage]
+    var messagesProvider: FunnyMessagesProvider
     
-    init() {
-        messages = FunnyMessage.messages
+    init(players: [Player], numberOfMessages: Int) {
+        messagesProvider = FunnyMessagesProvider(using: players, numberOfMessages: numberOfMessages)
+        messages = messagesProvider.random()
     }
     
     func showMessage(at index: Int) {

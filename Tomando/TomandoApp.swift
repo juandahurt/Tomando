@@ -12,6 +12,7 @@ struct TomandoApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

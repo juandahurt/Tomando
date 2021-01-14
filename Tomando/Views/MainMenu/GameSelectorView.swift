@@ -30,34 +30,31 @@ struct GameSelectorView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                NavigationBar(
-                    leading: BackButton(presentationMode: presentationMode),
-                    center: CuteText("Selección de juego", font: Font.primary(size: 22, isBold: true)),
-                    trailing: BackButton(presentationMode: presentationMode).hidden()
-                )
-                grid
-                Spacer()
-                NavigationLink(destination: PlayersView(mainViewModel: mainViewModel)) {
-                    Text("Continuar")
-                }
-                .buttonStyle(
-                    CutePrimaryButton(
-                        mainColor: Color("Green"),
-                        darkColor: Color("Green-Dark"),
-                        lightColor: Color("Green-Light"),
-                        font: .primary(size: 20, isBold: true),
-                        disabled: mainViewModel.bar.currentGame == nil
-                    )
-                )
-                .disabled(mainViewModel.bar.currentGame == nil)
-                .padding(.all, 20)
+        VStack {
+            NavigationBar(
+                leading: BackButton(presentationMode: presentationMode),
+                center: CuteText("Selección de juego", font: Font.primary(size: 22, isBold: true)),
+                trailing: BackButton(presentationMode: presentationMode).hidden()
+            )
+            grid
+            Spacer()
+            NavigationLink(destination: PlayersView(mainViewModel: mainViewModel)) {
+                Text("Continuar")
             }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("Primary"))
-                .navigationBarHidden(true)
+            .buttonStyle(
+                CutePrimaryButton(
+                    mainColor: Color("Green"),
+                    darkColor: Color("Green-Dark"),
+                    lightColor: Color("Green-Light"),
+                    font: .primary(size: 20, isBold: true),
+                    disabled: mainViewModel.bar.currentGame == nil
+                )
+            )
+            .disabled(mainViewModel.bar.currentGame == nil)
+            .padding(.all, 20)
         }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("Primary"))
             .navigationBarHidden(true)
     }
     
