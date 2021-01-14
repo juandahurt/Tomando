@@ -8,6 +8,8 @@
 import Foundation
 
 class DrinkingGame: Identifiable {
+    static let maxPlayers = 10
+    
     var id: Int
     var name: String
     var players: [Player]
@@ -23,6 +25,11 @@ class DrinkingGame: Identifiable {
         self.minPlayers = minPlayers
         self.currentState = initialState
         self.rules = []
+    }
+    
+    func add(player name: String) {
+        let newPlayer = Player(id: players.count, name: name)
+        players.append(newPlayer)
     }
 }
 

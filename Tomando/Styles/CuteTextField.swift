@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct CuteTextField: TextFieldStyle {
+    var width: CGFloat = .infinity
+    
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .frame(maxWidth: .infinity, maxHeight: 51)
-            .background(Color.primary.opacity(0.1))
-            .font(.primary(size: 20))
-            .foregroundColor(.primary)
-            .cornerRadius(10)
             .multilineTextAlignment(.center)
+            .frame(width: width, height: 43)
+            .border(color, width: 2)
+            .background(color)
+            .cornerRadius(5)
+            .font(.primary(size: 20))
+            .foregroundColor(foregroundColor)
     }
+    
+    let color = Color("White-Dark").opacity(0.2)
+    let foregroundColor = Color("White-Dark")
 }

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D178F732596B1240074BEA7 /* PlayersView.swift */; };
 		3D17F670259A829500D430FA /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */; };
+		3D1BB67025AF5A5D000E45A7 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1BB66F25AF5A5D000E45A7 /* Bar.swift */; };
 		3D1CFB4F2597A88400A79A5B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CFB4E2597A88400A79A5B /* Player.swift */; };
+		3D25A86E25AE2F83003E7167 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D25A86D25AE2F83003E7167 /* ProgressBar.swift */; };
 		3D27615025AB5A920079DC7C /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27614F25AB5A920079DC7C /* GameBoard.swift */; };
 		3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BB72594F78B00B6DA31 /* TomandoApp.swift */; };
 		3D369BBC2594F78C00B6DA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D369BBB2594F78C00B6DA31 /* Assets.xcassets */; };
@@ -55,7 +57,9 @@
 /* Begin PBXFileReference section */
 		3D178F732596B1240074BEA7 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		3D1BB66F25AF5A5D000E45A7 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		3D1CFB4E2597A88400A79A5B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		3D25A86D25AE2F83003E7167 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		3D27614F25AB5A920079DC7C /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		3D369BB42594F78B00B6DA31 /* Tomando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomando.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D369BB72594F78B00B6DA31 /* TomandoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomandoApp.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				3D6A0DC2259807FB00BA7BFB /* DisabableArea.swift */,
 				3DCA15492598D9AE00CFE47A /* RoundedCorner.swift */,
 				3D8230D125A810C400392D51 /* Loader.swift */,
+				3D25A86D25AE2F83003E7167 /* ProgressBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				3DB412E025AAB758001068BB /* Games */,
 				3D1CFB4E2597A88400A79A5B /* Player.swift */,
 				3D8230D725A81BD200392D51 /* FunnyMessage.swift */,
+				3D1BB66F25AF5A5D000E45A7 /* Bar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				3D369BC92594F7F100B6DA31 /* MainView.swift in Sources */,
 				3DB412EE25AAB991001068BB /* ThreemanState.swift in Sources */,
 				3DFC1E8325A916530037656C /* GameTerminalView.swift in Sources */,
+				3D25A86E25AE2F83003E7167 /* ProgressBar.swift in Sources */,
 				3D882FD6259962DD00100183 /* Double+Radians.swift in Sources */,
 				3D8230D525A8191600392D51 /* LoadingView.swift in Sources */,
 				3DC4610825968E3A00B214EF /* BackButton.swift in Sources */,
@@ -386,6 +393,7 @@
 				3D74F5712597C2430091F74A /* Modal.swift in Sources */,
 				3D27615025AB5A920079DC7C /* GameBoard.swift in Sources */,
 				3D40602625AA6041008FBFFB /* GameViewModel.swift in Sources */,
+				3D1BB67025AF5A5D000E45A7 /* Bar.swift in Sources */,
 				3D369BCF2595077D00B6DA31 /* Color+Custom.swift in Sources */,
 				3D369BE125952C7B00B6DA31 /* CuteTextField.swift in Sources */,
 				3D8BE0B925AAB9F2001DF000 /* ThreemanRule.swift in Sources */,

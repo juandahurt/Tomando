@@ -16,9 +16,7 @@ struct MainView: View {
                     Spacer()
                     
                     NavigationLink(destination: GameSelectorView()) {
-                        Button("Empezar") {
-                            
-                        }
+                        Text("Empezar")
                     }
                     .buttonStyle(
                         CutePrimaryButton(

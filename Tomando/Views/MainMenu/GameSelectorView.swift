@@ -12,18 +12,15 @@ struct GameSelectorView: View {
 
     @ObservedObject var mainViewModel = MainViewModel()
     
-    @State var selectedGame: DrinkingGame?
-    
-    
     var grid: some View {
         let column = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
         
         return LazyVGrid(columns: column) {
             ForEach(mainViewModel.games) { game in
-                GameCardView(game: game, isSelected: game == selectedGame)
+                GameCardView(game: game, isSelected: game == mainViewModel.bar.currentGame)
                     .onTapGesture {
                         if game != .disabled {
-                            selectedGame = game
+                            mainViewModel.select(game: game)
                         }
                     }
             }
@@ -42,8 +39,8 @@ struct GameSelectorView: View {
                 )
                 grid
                 Spacer()
-                Button("Continuar") {
-                    
+                NavigationLink(destination: PlayersView(mainViewModel: mainViewModel)) {
+                    Text("Continuar")
                 }
                 .buttonStyle(
                     CutePrimaryButton(
@@ -51,9 +48,10 @@ struct GameSelectorView: View {
                         darkColor: Color("Green-Dark"),
                         lightColor: Color("Green-Light"),
                         font: .primary(size: 20, isBold: true),
-                        disabled: selectedGame == nil
+                        disabled: mainViewModel.bar.currentGame == nil
                     )
                 )
+                .disabled(mainViewModel.bar.currentGame == nil)
                 .padding(.all, 20)
             }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
