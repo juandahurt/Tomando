@@ -61,10 +61,12 @@ struct GameTerminalView: View {
     
     var _body: some View {
         GameBoard(
+            title: "",
             disabled: true,
             mainButtonIsDisabled: true,
             mainButtonText: "",
-            mainButtonAction: {}) {
+            mainButtonAction: {}
+        ) {
             log
         }
         .onTapGesture {
@@ -88,6 +90,12 @@ struct GameTerminalView: View {
     @ViewBuilder
     var body: some View {
         if goToNextViewClicked {
+            switch gameViewModel.game {
+                case is Threeman:
+                    ThreemanView(gameViewModel: gameViewModel)
+                default:
+                    EmptyView()
+                }
 //            ThreemanView()
         } else {
             _body

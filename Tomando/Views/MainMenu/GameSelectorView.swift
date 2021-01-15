@@ -41,6 +41,7 @@ struct GameSelectorView: View {
             NavigationLink(destination: PlayersView(mainViewModel: mainViewModel)) {
                 Text("Continuar")
             }
+            .isDetailLink(false)
             .buttonStyle(
                 CutePrimaryButton(
                     mainColor: Color("Green"),

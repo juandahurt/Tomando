@@ -7,7 +7,18 @@
 
 import Foundation
 
-class DrinkingGameRule {
-//    var validator: (DrinkingGameState) -> Bool { get set }
-//    var result: String { get }
+class DrinkingGameRule: Identifiable {
+    var id: Int
+    var validator: (DrinkingGameState) -> Bool
+    var result: String
+    
+    init(id: Int, _ result: String, validator: @escaping (DrinkingGameState) -> Bool) {
+        self.id = id
+        self.result = result
+        self.validator = validator
+    }
+    
+    func updateResult() {
+        
+    }
 }

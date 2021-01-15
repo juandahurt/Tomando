@@ -8,11 +8,14 @@
 import Foundation
 
 protocol StatefulGame {
-    var started: Bool { get }
     var currentState: DrinkingGameState? { get }
-    var currentPlayer: Player? { get }
+    var currentPlayer: Player? { get set }
+    var playerToTheLeft: Player? { get set }
+    var playerToTheRight: Player? { get set }
+    var rules: [DrinkingGameRule] { get }
     
     func start() -> Void
-    func update() -> Void
+    func updateRightAndLeftPlayers() -> Void
+    func update(completion: @escaping ([DrinkingGameRule]) -> Void) -> Void
     func nextTurn() -> Void
 }

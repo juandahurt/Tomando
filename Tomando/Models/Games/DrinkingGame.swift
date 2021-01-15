@@ -8,21 +8,18 @@
 import Foundation
 
 class DrinkingGame: Identifiable, Logger, StatefulGame {
-    
     static let maxPlayers = 10
     
     var log: [Log]
-    
     var id: Int
     var name: String
     var players: [Player]
     var minPlayers: Int
-
-    var rules: [DrinkingGameRule]
-
-    var started: Bool
     var currentPlayer: Player?
     var currentState: DrinkingGameState?
+    var playerToTheLeft: Player?
+    var playerToTheRight: Player?
+    var rules: [DrinkingGameRule]
     
     init(id: Int, name: String, minPlayers: Int) {
         self.id = id
@@ -31,7 +28,6 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
         self.minPlayers = minPlayers
         self.rules = []
         self.log = []
-        self.started = false
     }
     
     func add(player name: String) {
@@ -40,7 +36,17 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
     }
     
     func start() -> Void { }
-    func update() -> Void { }
+    
+    internal func updateRightAndLeftPlayers() {
+        let currentPlayerIndex = players.firstIndex(of: currentPlayer!)!
+        let playerToTheLeftIndex = currentPlayerIndex > 0 ? currentPlayerIndex - 1 : players.count - 1
+        self.playerToTheLeft = players[playerToTheLeftIndex]
+        let playerToTheRightIndex = currentPlayerIndex < players.count - 1 ? currentPlayerIndex + 1 : 0
+        self.playerToTheRight = players[playerToTheRightIndex]
+    }
+    
+    func update(completion: @escaping ([DrinkingGameRule]) -> Void) -> Void { }
+    
     func nextTurn() -> Void { }
 }
 

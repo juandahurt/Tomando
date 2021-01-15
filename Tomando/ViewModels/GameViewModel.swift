@@ -18,12 +18,32 @@ class GameViewModel: ObservableObject {
         game.log
     }
     
-//    var currentState: GameState {
-//        game.currentState
-//    }
+    var currentState: DrinkingGameState {
+        game.currentState!
+    }
+    
+    var currentPlayer: Player {
+        game.currentPlayer!
+    }
+    
+    var playerToTheLeft: Player {
+        game.playerToTheLeft!
+    }
+    
+    var playerToTheRight: Player {
+        game.playerToTheRight!
+    }
     
     func start() {
         game.start()
+    }
+    
+    func updateState(completion: @escaping ([DrinkingGameRule]) -> Void) {
+        game.update(completion: completion)
+    }
+    
+    func nextTurn() {
+        game.nextTurn()
     }
     
 //    func next(completion: @escaping ([GameRule]) -> Void) {

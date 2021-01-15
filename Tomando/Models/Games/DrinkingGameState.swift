@@ -8,9 +8,9 @@
 import Foundation
 
 class DrinkingGameState {
-    var value: Any?
+    var value: [Int]
     
-    init(initialValue: Any?) {
+    init(initialValue: [Int]) {
         self.value = initialValue
     }
 }

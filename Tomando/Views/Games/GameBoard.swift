@@ -20,8 +20,10 @@ struct GameBoard<Content: View>: View {
     
     var content: Content
     
-    init(title: String = "Dummy", disabled: Bool, mainButtonIsDisabled: Bool, mainButtonText: String, mainButtonAction: @escaping () -> Void, content: () -> Content) {
+    init(title: String, leftPlayer: Player = .dummy, rightPlayer: Player = .dummy, disabled: Bool, mainButtonIsDisabled: Bool, mainButtonText: String, mainButtonAction: @escaping () -> Void, content: () -> Content) {
         self.title = title
+        self.leftPlayer = leftPlayer
+        self.rightPlayer = rightPlayer
         self.disabled = disabled
         self.mainButtonIsDisabled = mainButtonIsDisabled
         self.mainButtonText = mainButtonText
@@ -37,9 +39,10 @@ struct GameBoard<Content: View>: View {
                     .fill(disabled ? disabledColor : Color.clear)
                     .frame(width: 144, height: 22)
             } else {
-                CuteText(title, color: Color.white.opacity(0.25), font: .primary(size: 20, isBold: true))
+                CuteText(title, color: textColor, font: .primary(size: 20, isBold: true))
                     .transition(.slide)
-                    .animation(.easeIn)
+                    .animation(Animation.easeIn.speed(2))
+                    .id("Titletext" + title)
             }
         }.frame(width: UIScreen.main.bounds.width)
     }
@@ -63,8 +66,8 @@ struct GameBoard<Content: View>: View {
                         .fill(disabledColor)
                         .frame(width: 31, height: 9)
                 } else {
-                    CuteText(playerTitle, color: .white, font: .primary(size: 10))
-                    CuteText(player.name, color: .white, font: .primary(size: 10, isBold: true))
+                    CuteText(playerTitle, color: textColor, font: .primary(size: 10))
+                    CuteText(player.name, color: textColor, font: .primary(size: 10, isBold: true))
                 }
             }
         }
@@ -122,6 +125,7 @@ struct GameBoard<Content: View>: View {
     }
     
     let backgroundColor = Color("Primary")
+    let textColor = Color("White-Dark")
     let disabledColor = Color("White-Dark").opacity(0.1)
     let color = Color("Green").opacity(0.7)
 }

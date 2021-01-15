@@ -37,6 +37,7 @@ struct MainView: View {
                         )
                     )
                 }
+                .isDetailLink(false)
                 .padding(.horizontal, 50)
                 .padding(.top)
                 .animation(.none)
