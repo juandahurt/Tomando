@@ -19,23 +19,6 @@ struct ThreemanView: View {
     @State var mainButtonText: String = "Rodar"
     @State var mainButtonAction: () -> Void = {}
     
-    var dices: some View {
-        Group {
-            if isLoading {
-                Loader(
-                    color: .white,
-                    lightColor: Color.gray.opacity(0.1)
-                )
-            } else {
-                HStack(spacing: 37) {
-                    Spacer()
-                    Dice(facing: gameViewModel.currentState.value[0])
-                    Dice(facing: gameViewModel.currentState.value[1])
-                    Spacer()
-                }
-            }
-        }
-    }
     
     func updateAction() {
         title = ""
@@ -60,38 +43,106 @@ struct ThreemanView: View {
         activeRules.removeAll()
     }
     
-    var _body: some View {
-        VStack {
-            CuteText(
-                showNumber ? String(gameViewModel.currentState.value.reduce(0, +)) : "",
-                color: Color("Primary").opacity(0.5),
-                font: Font.primary(size: 40, isBold: true)
-            )
-                .padding(.bottom)
-                .padding(.top, 20)
-            dices
-            VStack(spacing: 10) {
+    var dices: some View {
+        Group {
+            if isLoading {
                 Spacer()
-                Group {
-                    if activeRules.isEmpty && mainButtonText == "OK" {
-                        CuteText(
-                            "Nadie toma",
-                            color: Color("Primary").opacity(0.5),
-                            font: Font.primary(size: 20, isBold: true)
-                        )
-                    } else {
-                        ForEach(activeRules) { rule in
+                Loader(
+                    color: .white,
+                    lightColor: Color.gray.opacity(0.1)
+                )
+                Spacer()
+            } else {
+                HStack(spacing: 37) {
+                    Spacer()
+                    Dice(facing: gameViewModel.currentState.value[0])
+                    Dice(facing: gameViewModel.currentState.value[1])
+                    Spacer()
+                }
+            }
+        }
+    }
+    
+    var threemanName: some View {
+        Group {
+            if isLoading {
+                EmptyView()
+            } else {
+                HStack(spacing: 3) {
+                    CuteText(
+                        "Three man:",
+                        color: Color("Primary").opacity(0.3),
+                        font: Font.primary(size: 16)
+                    )
+                    CuteText(
+                        (gameViewModel.game as! Threeman).threeman!.name,
+                        color: Color("Primary").opacity(0.3),
+                        font: Font.primary(size: 16, isBold: true)
+                    )
+                    Spacer()
+                }
+                .padding(30)
+            }
+        }
+    }
+    
+    var rulesList: some View {
+        Group {
+            if isLoading {
+                EmptyView()
+            } else {
+                VStack(spacing: 10) {
+                    Spacer()
+                    Group {
+                        if activeRules.isEmpty && mainButtonText == "OK" {
                             CuteText(
-                                rule.result,
-                                color: Color("White-Dark"),
+                                "Nadie toma",
+                                color: Color("Primary").opacity(0.5),
                                 font: Font.primary(size: 20, isBold: true)
                             )
+                        } else {
+                            ForEach(activeRules) { rule in
+                                CuteText(
+                                    rule.result,
+                                    color: Color("White-Dark"),
+                                    font: Font.primary(size: 20, isBold: true)
+                                )
+                            }
                         }
                     }
+                    Spacer()
                 }
-                Spacer()
+                    .padding(.top)
             }
-                .padding(.top, 47)
+        }
+    }
+    
+    var _body: some View {
+        ZStack {
+            Rectangle()
+                .fill(cardBackgroundColor)
+                .cornerRadius(15)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            ZStack {
+                Rectangle()
+                    .fill(cardBackgroundColor)
+                    .cornerRadius(15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(10)
+                VStack {
+                    threemanName
+                    Spacer()
+                    CuteText(
+                        showNumber ? String(gameViewModel.currentState.value.reduce(0, +)) : "",
+                        color: Color("Primary").opacity(0.5),
+                        font: Font.primary(size: 40, isBold: true)
+                    )
+                        .padding(.bottom)
+                    dices
+                    rulesList
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onAppear {
             self.title = "\(gameViewModel.currentPlayer.name), es tu turno"
@@ -115,5 +166,6 @@ struct ThreemanView: View {
     
     
     let backgroundColor = Color("Primary")
+    let cardBackgroundColor = Color("Green").opacity(0.7)
     let disabledColor = Color("White-Dark").opacity(0.1)
 }

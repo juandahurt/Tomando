@@ -99,14 +99,8 @@ struct GameBoard<Content: View>: View {
                 .padding(.top, 55)
             ZStack {
                 Rectangle()
-                    .fill(disabled ? disabledColor : color)
+                    .fill(disabled ? disabledColor : Color.clear)
                     .cornerRadius(15)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                Rectangle()
-                    .fill(disabled ? Color.clear : color)
-                    .cornerRadius(15)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding(10)
                 GeometryReader { _ in
                     content
                 }
@@ -132,5 +126,4 @@ struct GameBoard<Content: View>: View {
     let backgroundColor = Color("Primary")
     let textColor = Color("White-Dark")
     let disabledColor = Color("White-Dark").opacity(0.1)
-    let color = Color("Green").opacity(0.7)
 }

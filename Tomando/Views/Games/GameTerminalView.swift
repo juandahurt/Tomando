@@ -96,7 +96,6 @@ struct GameTerminalView: View {
                 default:
                     EmptyView()
                 }
-//            ThreemanView()
         } else {
             _body
         }
