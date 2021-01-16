@@ -13,6 +13,7 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
     var log: [Log]
     var id: Int
     var name: String
+    var description: String
     var players: [Player]
     var minPlayers: Int
     var currentPlayer: Player?
@@ -21,9 +22,10 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
     var playerToTheRight: Player?
     var rules: [DrinkingGameRule]
     
-    init(id: Int, name: String, minPlayers: Int) {
+    init(id: Int, name: String, description: String, minPlayers: Int) {
         self.id = id
         self.name = name
+        self.description = description
         self.players = []
         self.minPlayers = minPlayers
         self.rules = []
@@ -51,7 +53,12 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
 }
 
 extension DrinkingGame {
-    static let disabled = DrinkingGame(id: -1, name: "Proximamente", minPlayers: -1)
+    static let disabled = DrinkingGame(
+        id: -1,
+        name: "Proximamente",
+        description: "",
+        minPlayers: -1
+    )
     
     static let games: [DrinkingGame] = [
         Threeman(),

@@ -96,7 +96,6 @@ struct LoadingView<Content: View>: View {
         }
         .navigationBarHidden(true)
         .background(Color("White-Dark"))
-        .ignoresSafeArea(edges: .top)
     }
     
     

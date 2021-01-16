@@ -31,23 +31,16 @@ struct Modal<Content: View>: View {
                         }
                     ZStack {
                         Rectangle()
-                            .fill(Color.text)
+                            .fill(Color("White-Dark"))
                             .cornerRadius(10)
                         VStack {
-                            HStack {
-                                CuteText(title, color: .primary, font: .primary(size: 18))
-                                Spacer()
-                                TouchableArea(action: { isPresented.wrappedValue = false }) {
-                                    Image("Close")
-                                }
-                            }
-                                .padding()
                             content
                             Spacer()
                         }
-                        
                     }
-                    .frame(width: size.width, height: size.height)
+                    .frame(maxWidth: size.width, maxHeight: size.height)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical, 90)
                 }
             } else {
                 EmptyView()

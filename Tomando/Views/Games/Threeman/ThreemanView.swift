@@ -70,7 +70,7 @@ struct ThreemanView: View {
             } else {
                 HStack(spacing: 3) {
                     CuteText(
-                        "Three man:",
+                        "Triman:",
                         color: Color("Primary").opacity(0.3),
                         font: Font.primary(size: 16)
                     )
