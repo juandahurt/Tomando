@@ -102,6 +102,11 @@ struct GameBoard<Content: View>: View {
                     .fill(disabled ? disabledColor : color)
                     .cornerRadius(15)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                Rectangle()
+                    .fill(disabled ? Color.clear : color)
+                    .cornerRadius(15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(10)
                 GeometryReader { _ in
                     content
                 }

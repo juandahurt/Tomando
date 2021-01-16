@@ -67,7 +67,8 @@ struct ThreemanView: View {
                 color: Color("Primary").opacity(0.5),
                 font: Font.primary(size: 40, isBold: true)
             )
-                .padding(.vertical)
+                .padding(.bottom)
+                .padding(.top, 20)
             dices
             VStack(spacing: 10) {
                 Spacer()

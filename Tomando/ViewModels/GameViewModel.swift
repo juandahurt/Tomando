@@ -1,9 +1,9 @@
-////
-////  GameViewModel.swift
-////  Tomando
-////
-////  Created by juandahurt on 9/01/21.
-////
+//
+//  GameViewModel.swift
+//  Tomando
+//
+//  Created by juandahurt on 9/01/21.
+//
 
 import Foundation
 
@@ -45,8 +45,4 @@ class GameViewModel: ObservableObject {
     func nextTurn() {
         game.nextTurn()
     }
-    
-//    func next(completion: @escaping ([GameRule]) -> Void) {
-//        game.next(completion: completion)
-//    }
 }

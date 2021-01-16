@@ -23,7 +23,7 @@ struct LoadingView<Content: View>: View {
     
     init(players: [Player], nextView: Content) {
         self.nextView = nextView
-        self._messagesViewModel = StateObject(wrappedValue: FunnyMessagesViewModel(players: players, numberOfMessages: players.count))
+        self._messagesViewModel = StateObject(wrappedValue: FunnyMessagesViewModel(players: players))
     }
     
     

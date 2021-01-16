@@ -11,8 +11,8 @@ class FunnyMessagesViewModel: ObservableObject {
     @Published private(set) var messages: [FunnyMessage]
     var messagesProvider: FunnyMessagesProvider
     
-    init(players: [Player], numberOfMessages: Int) {
-        messagesProvider = FunnyMessagesProvider(using: players, numberOfMessages: numberOfMessages)
+    init(players: [Player]) {
+        messagesProvider = FunnyMessagesProvider(using: players)
         messages = messagesProvider.random()
     }
     

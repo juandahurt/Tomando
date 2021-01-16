@@ -73,29 +73,32 @@ struct PlayersView: View {
     
 //  MARK: - Form
     var form: some View {
-        HStack {
-            TextField("", text: $playerName)
-                .textFieldStyle(CuteTextField(width: 212))
-                .textCase(.lowercase)
-            Button("Agregar") {
-                mainViewModel.objectWillChange.send()
-                mainViewModel.add(player: playerName)
-                playerName = ""
-                
-                updateBarColor()
-                updateBarPercentage()
-            }
-            .buttonStyle(
-                CutePrimaryButton(
-                    mainColor: Color("Blue"),
-                    darkColor: Color("Blue-Dark"),
-                    lightColor: Color("Blue-Light"),
-                    font: .primary(size: 18, isBold: true),
-                    disabled: playerName == ""
+        VStack(alignment: .leading, spacing: 2) {
+            CuteText("Nombre", color: Color("White-Dark").opacity(0.2), font: Font.primary(size: 16, isBold: true))
+            HStack {
+                TextField("", text: $playerName)
+                    .textFieldStyle(CuteTextField(width: 212))
+                    .textCase(.lowercase)
+                Button("Agregar") {
+                    mainViewModel.objectWillChange.send()
+                    mainViewModel.add(player: playerName)
+                    playerName = ""
+                    
+                    updateBarColor()
+                    updateBarPercentage()
+                }
+                .buttonStyle(
+                    CutePrimaryButton(
+                        mainColor: Color("Blue"),
+                        darkColor: Color("Blue-Dark"),
+                        lightColor: Color("Blue-Light"),
+                        font: .primary(size: 18, isBold: true),
+                        disabled: playerName == "" || mainViewModel.players.count == DrinkingGame.maxPlayers
+                    )
                 )
-            )
-            .disabled(playerName == "")
-            .padding(.leading)
+                .disabled(playerName == "" || mainViewModel.players.count == DrinkingGame.maxPlayers)
+                .padding(.leading)
+            }
         }
         .padding(.horizontal, 20)
     }

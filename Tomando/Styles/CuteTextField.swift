@@ -14,9 +14,8 @@ struct CuteTextField: TextFieldStyle {
         configuration
             .multilineTextAlignment(.center)
             .frame(width: width, height: 43)
-            .border(color, width: 2)
             .background(color)
-            .cornerRadius(5)
+            .cornerRadius(10)
             .font(.primary(size: 20))
             .foregroundColor(foregroundColor)
     }

@@ -11,9 +11,9 @@ struct FunnyMessagesProvider {
     var players: [Player]
     var numberOfMessages: Int
     
-    init(using players: [Player], numberOfMessages: Int) {
+    init(using players: [Player]) {
         self.players = players
-        self.numberOfMessages = numberOfMessages
+        self.numberOfMessages = .random(in: 1...players.count)
     }
     
     func random() -> [FunnyMessage] {

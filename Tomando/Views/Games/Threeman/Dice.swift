@@ -84,8 +84,8 @@ struct Dice: View {
         .frame(width: diceSize.width + 5, height: diceSize.height + 5)
     }
     
-    let backgroundColor: Color = .white
-    let shadowColor: Color = Color("White-Dark")
+    let backgroundColor: Color = Color("White-Dark")
+    let shadowColor: Color = Color("Gray")
     
     let circleDiameter: CGFloat = 18
     let circleColor: Color = Color("Primary")
@@ -109,20 +109,5 @@ struct Dice: View {
         static let right = DicePoint(id: 5, point: CGPoint(x: diceSize.width - xOffset, y: diceSize.height / 2))
         static let bottomLeft = DicePoint(id: 6, point: CGPoint(x: xOffset + leftOffset, y: diceSize.height - yOffset))
         static let bottomRight = DicePoint(id: 7, point: CGPoint(x: diceSize.width - xOffset, y: diceSize.height - yOffset))
-    }
-}
-
-struct Dice_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Dice(facing: 1)
-            Dice(facing: 2)
-            Dice(facing: 3)
-            Dice(facing: 4)
-            Dice(facing: 5)
-            Dice(facing: 6)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("Primary"))
     }
 }

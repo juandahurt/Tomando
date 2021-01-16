@@ -16,7 +16,7 @@ struct GameCardView: View {
     init(game: DrinkingGame, isSelected: Bool = false) {
         self.game = game
         self.disabled = game == DrinkingGame.disabled
-        self.color = Color("White")
+        self.color = Color("White-Dark")
         self.isSelected = isSelected
     }
     
