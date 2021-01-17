@@ -40,7 +40,7 @@ struct Modal<Content: View>: View {
                     }
                     .frame(maxWidth: size.width, maxHeight: size.height)
                     .padding(.horizontal, 40)
-                    .padding(.vertical, 90)
+                    .padding(.vertical, 120)
                 }
             } else {
                 EmptyView()

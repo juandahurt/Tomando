@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0BB72425B4F0CE00EC4254 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0BB72325B4F0CE00EC4254 /* CreditsView.swift */; };
 		3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D178F732596B1240074BEA7 /* PlayersView.swift */; };
 		3D17F670259A829500D430FA /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */; };
 		3D1BB67025AF5A5D000E45A7 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1BB66F25AF5A5D000E45A7 /* Bar.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0BB72325B4F0CE00EC4254 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		3D178F732596B1240074BEA7 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		3D1BB66F25AF5A5D000E45A7 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				3D8230D425A8191600392D51 /* LoadingView.swift */,
 				3D38DC99259548C600EA0B02 /* GameSelectorView.swift */,
 				3D178F732596B1240074BEA7 /* PlayersView.swift */,
+				3D0BB72325B4F0CE00EC4254 /* CreditsView.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				3D419E3625B09DD20000AB5A /* FunnyMessagesProvider.swift in Sources */,
 				3D40602625AA6041008FBFFB /* GameViewModel.swift in Sources */,
 				3D1BB67025AF5A5D000E45A7 /* Bar.swift in Sources */,
+				3D0BB72425B4F0CE00EC4254 /* CreditsView.swift in Sources */,
 				3D369BCF2595077D00B6DA31 /* Color+Custom.swift in Sources */,
 				3D369BE125952C7B00B6DA31 /* CuteTextField.swift in Sources */,
 				3D4AB9D025B0E2A30064EDD0 /* StatefulGame.swift in Sources */,

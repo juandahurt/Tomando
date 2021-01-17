@@ -38,46 +38,61 @@ struct GameSelectorView: View {
     }
     
     var gameRules: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
+        VStack {
+            ScrollView {
                 CuteText(
                     gameToShowItsRules.description,
                     color: Color("Primary"),
                     font: Font.primary(size: 14)
                 )
-                    .padding(.bottom)
-                CuteText(
-                    "Reglas",
-                    color: Color("Primary"),
-                    font: Font.primary(size: 16, isBold: true)
-                )
-                ForEach(gameToShowItsRules.rules) { rule in
-                    HStack {
-                        Circle()
-                            .fill(Color("Primary"))
-                            .frame(width: 5, height: 5)
-                        CuteText(
-                            rule.description,
-                            color: Color("Primary"),
-                            font: Font.primary(size: 14)
-                        )
-                    }
-                }
                 HStack(spacing: 3) {
                     CuteText(
-                        "Fuente:",
-                        color: Color("Primary").opacity(0.4),
-                        font: Font.primary(size: 10)
+                        "Jugadores:",
+                        color: Color("Primary"),
+                        font: Font.primary(size: 12)
                     )
                     CuteText(
-                        "Wikipedia",
-                        color: Color("Primary").opacity(0.4),
-                        font: Font.primary(size: 10, isBold: true)
+                        "\(gameToShowItsRules.minPlayers)+",
+                        color: Color("Primary"),
+                        font: Font.primary(size: 12, isBold: true)
                     )
+                    Spacer()
                 }
-                .padding(.top, 50)
+                    .padding(.vertical)
+                VStack(alignment: .leading) {
+                    CuteText(
+                        "Reglas",
+                        color: Color("Primary"),
+                        font: Font.primary(size: 16, isBold: true)
+                    )
+                    ForEach(gameToShowItsRules.rules) { rule in
+                        HStack {
+                            Circle()
+                                .fill(Color("Primary"))
+                                .frame(width: 5, height: 5)
+                            CuteText(
+                                rule.description,
+                                color: Color("Primary"),
+                                font: Font.primary(size: 14)
+                            )
+                        }
+                    }
+                }
             }
-            .padding()
+                .padding(15)
+            Spacer()
+            HStack(spacing: 3) {
+                CuteText(
+                    "Fuente:",
+                    color: Color("Primary").opacity(0.4),
+                    font: Font.primary(size: 10)
+                )
+                CuteText(
+                    "Wikipedia",
+                    color: Color("Primary").opacity(0.4),
+                    font: Font.primary(size: 10, isBold: true)
+                )
+            }
         }
     }
     
@@ -130,10 +145,6 @@ struct GameSelectorView: View {
                     )
                         .padding(.horizontal)
                         .padding(.top)
-                    Divider()
-                        .background(Color("Primary").opacity(0.4))
-                        .padding(0)
-                        .frame(height: 1)
                     gameRules
                 }
             }

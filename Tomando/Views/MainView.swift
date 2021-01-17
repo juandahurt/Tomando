@@ -28,16 +28,15 @@ struct MainView: View {
                 .padding(.horizontal, 50)
                 .animation(.none)
                 
-                NavigationLink(destination: GameSelectorView()) {
-                    Button("Creditos") {
-                        
-                    }.buttonStyle(
-                        CuteSecondaryButton(
-                            font: .primary(size: 20, isBold: true)
-                        )
-                    )
+                NavigationLink(destination: CreditsView()) {
+                    Text("Creditos")
                 }
                 .isDetailLink(false)
+                .buttonStyle(
+                    CuteSecondaryButton(
+                        font: .primary(size: 20, isBold: true)
+                    )
+                )
                 .padding(.horizontal, 50)
                 .padding(.top)
                 .animation(.none)
@@ -58,6 +57,6 @@ struct MainView: View {
     }
     
     let padding = EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
-    let textColor = Color.text.opacity(0.4)
+    let textColor = Color("White-Dark").opacity(0.2)
     let textFont: Font = .secondary(size: 12)
 }
