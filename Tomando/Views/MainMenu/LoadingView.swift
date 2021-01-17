@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingView<Content: View>: View {
+struct LoadingView: View {
     @State private var isAnimating = false
     @State private var firstVisibleMessageIndex = 0
     @State private var messageIndex = 0
@@ -19,11 +19,11 @@ struct LoadingView<Content: View>: View {
     
     @StateObject private var messagesViewModel: FunnyMessagesViewModel
     
-    var nextView: Content
+    var game: DrinkingGame
     
-    init(players: [Player], nextView: Content) {
-        self.nextView = nextView
+    init(players: [Player], game: DrinkingGame) {
         self._messagesViewModel = StateObject(wrappedValue: FunnyMessagesViewModel(players: players))
+        self.game = game
     }
     
     
@@ -104,7 +104,12 @@ struct LoadingView<Content: View>: View {
         if isLoading {
             _body
         } else {
-            nextView
+            switch game {
+            case is Threeman:
+                GameTerminalView(for: game)
+            default:
+                EmptyView()
+            }
         }
     }
 }

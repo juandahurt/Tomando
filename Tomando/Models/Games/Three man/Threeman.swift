@@ -64,12 +64,6 @@ class Threeman: DrinkingGame {
         self.log.append(.init(text: "\(threeman!.name), dios te ampare."))
         self.currentState = ThreemanState()
         self.currentPlayer = self.players.randomElement()!
-        
-        // TODO: Esto no puede estar en la version final!! Agregar metodo que permite
-        //       seleccionar las posiciones de los jugadores
-        for playerIndex in players.indices {
-            players[playerIndex].location = playerIndex
-        }
         updateRightAndLeftPlayers()
     }
     

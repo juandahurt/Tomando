@@ -33,6 +33,14 @@ class MainViewModel: ObservableObject {
     func add(player name: String) {
         bar.currentGame?.add(player: name)
     }
+    
+    func initLocations() {
+        bar.currentGame?.initLocations()
+    }
+    
+    func setLocation(for player: Player, at location: Int) {
+        bar.currentGame?.setLocation(for: player, at: location)
+    }
 //    
 //    func setLocation(for player: Player, at location: Int) {
 //        bar.currentGame?.setLocation(for: player, at: location)

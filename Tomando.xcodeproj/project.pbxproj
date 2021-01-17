@@ -13,6 +13,8 @@
 		3D1CFB4F2597A88400A79A5B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CFB4E2597A88400A79A5B /* Player.swift */; };
 		3D25A86E25AE2F83003E7167 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D25A86D25AE2F83003E7167 /* ProgressBar.swift */; };
 		3D27615025AB5A920079DC7C /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27614F25AB5A920079DC7C /* GameBoard.swift */; };
+		3D33090F25B48A640036836B /* DraggableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33090E25B48A640036836B /* DraggableContainer.swift */; };
+		3D33091325B49CFF0036836B /* PlayersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33091225B49CFF0036836B /* PlayersTable.swift */; };
 		3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BB72594F78B00B6DA31 /* TomandoApp.swift */; };
 		3D369BBC2594F78C00B6DA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D369BBB2594F78C00B6DA31 /* Assets.xcassets */; };
 		3D369BBF2594F78C00B6DA31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D369BBE2594F78C00B6DA31 /* Preview Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		3D1CFB4E2597A88400A79A5B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3D25A86D25AE2F83003E7167 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		3D27614F25AB5A920079DC7C /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		3D33090E25B48A640036836B /* DraggableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableContainer.swift; sourceTree = "<group>"; };
+		3D33091225B49CFF0036836B /* PlayersTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTable.swift; sourceTree = "<group>"; };
 		3D369BB42594F78B00B6DA31 /* Tomando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomando.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D369BB72594F78B00B6DA31 /* TomandoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomandoApp.swift; sourceTree = "<group>"; };
 		3D369BBB2594F78C00B6DA31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D33091125B49CC50036836B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				3DCA15502599097A00CFE47A /* PlayersLocationView.swift */,
+				3D33091225B49CFF0036836B /* PlayersTable.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		3D369BAB2594F78B00B6DA31 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +197,7 @@
 				3DCA15492598D9AE00CFE47A /* RoundedCorner.swift */,
 				3D8230D125A810C400392D51 /* Loader.swift */,
 				3D25A86D25AE2F83003E7167 /* ProgressBar.swift */,
+				3D33090E25B48A640036836B /* DraggableContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -296,10 +310,10 @@
 		3DCA154F2599095300CFE47A /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3D33091125B49CC50036836B /* Location */,
 				3D8230D425A8191600392D51 /* LoadingView.swift */,
 				3D38DC99259548C600EA0B02 /* GameSelectorView.swift */,
 				3D178F732596B1240074BEA7 /* PlayersView.swift */,
-				3DCA15502599097A00CFE47A /* PlayersLocationView.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -389,6 +403,7 @@
 				3D8230D825A81BD200392D51 /* FunnyMessage.swift in Sources */,
 				3DCE8C2F25A9573400F9A37B /* ThreemanView.swift in Sources */,
 				3DAE9B982596B65D00323156 /* GameCardView.swift in Sources */,
+				3D33091325B49CFF0036836B /* PlayersTable.swift in Sources */,
 				3DC46104259688E500B214EF /* TouchableArea.swift in Sources */,
 				3DCA154D2598DAE000CFE47A /* View+CornerRadius.swift in Sources */,
 				3DC461182596AB7C00B214EF /* Threeman.swift in Sources */,
@@ -424,6 +439,7 @@
 				3D8230D225A810C400392D51 /* Loader.swift in Sources */,
 				3DB412E925AAB817001068BB /* DrinkingGameState.swift in Sources */,
 				3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */,
+				3D33090F25B48A640036836B /* DraggableContainer.swift in Sources */,
 				3DFC1E7F25A90EBE0037656C /* FunnyMessagesViewModel.swift in Sources */,
 				3DBA89DA25AD5B0800E63718 /* CuteSecondaryButton.swift in Sources */,
 				3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */,

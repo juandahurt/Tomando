@@ -82,19 +82,13 @@ struct GameSelectorView: View {
     }
     
     var youCanSeeTheRulesText: some View {
-        HStack(spacing: 3) {
-            CuteText(
-                "Por si te interesa:",
-                color: Color("White-Dark").opacity(0.2),
-                font: Font.primary(size: 10, isBold: true)
-            )
-            CuteText(
-                "Si dejas presionado sobre un juego, puedes ver sus reglas.",
-                color: Color("White-Dark").opacity(0.2),
-                font: Font.primary(size: 10)
-            )
-        }
+        CuteText(
+            "Si dejas presionado sobre un juego, puedes ver sus reglas.",
+            color: Color("White-Dark").opacity(0.2),
+            font: Font.primary(size: 12)
+        )
             .padding(.top)
+            .padding(.horizontal)
     }
     
     var body: some View {

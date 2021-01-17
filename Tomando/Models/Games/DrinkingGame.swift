@@ -37,6 +37,16 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
         players.append(newPlayer)
     }
     
+    func setLocation(for player: Player, at location: Int) {
+        if let playerIndex = players.firstIndex(where: { $0 == player }) {
+            players[playerIndex].location = location
+        }
+    }
+    
+    func initLocations() {
+        for playerIndex in players.indices { players[playerIndex].location = nil }
+    }
+    
     func start() -> Void { }
     
     internal func updateRightAndLeftPlayers() {
