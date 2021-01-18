@@ -11,8 +11,8 @@ struct ShuttingDownView: View {
     @EnvironmentObject var appState: AppState
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let messages: [String] = [
-        "Analizando mas informacion innecesaria...",
-        "Cerrando sesion...",
+        "Analizando mas información innecesaria...",
+        "Cerrando sesión...",
         "Apagando el sistema...",
         "",
         "Chao."
