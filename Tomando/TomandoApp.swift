@@ -13,6 +13,12 @@ struct TomandoApp: App {
         WindowGroup {
             MainView()
                 .navigationViewStyle(StackNavigationViewStyle())
+                .environmentObject(AppState())
         }
     }
+}
+
+
+class AppState: ObservableObject {
+    @Published var moveToMainMenu: Bool = false
 }

@@ -87,7 +87,8 @@ struct PlayersLocationView: View {
                     in: geometry.size,
                     mainViewModel: mainViewModel,
                     droppableAreas: $droppableAreas,
-                    showSkipButton: currentPlayerIndex < mainViewModel.players.count
+                    showSkipButton: currentPlayerIndex < mainViewModel.players.count,
+                    currentPlayerIndex: $currentPlayerIndex
                 )
             }
             Spacer(minLength: 0)

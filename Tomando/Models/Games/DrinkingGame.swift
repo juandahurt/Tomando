@@ -47,6 +47,14 @@ class DrinkingGame: Identifiable, Logger, StatefulGame {
         for playerIndex in players.indices { players[playerIndex].location = nil }
     }
     
+    func randomizeLocations() {
+        var locations = Array(0...players.count-1)
+        locations.shuffle()
+        for locationIndex in locations.indices {
+            players[locationIndex].location = locations[locationIndex]
+        }
+    }
+    
     func start() -> Void { }
     
     internal func updateRightAndLeftPlayers() {
@@ -70,10 +78,14 @@ extension DrinkingGame {
         minPlayers: -1
     )
     
-    static let games: [DrinkingGame] = [
+    static var games: [DrinkingGame] = [
         Threeman(),
         .disabled
     ]
+    
+    static func resetGames() {
+        DrinkingGame.games = [Threeman(), .disabled]
+    }
 }
 
 

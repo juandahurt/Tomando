@@ -12,16 +12,18 @@ struct PlayersTable: View {
     @ObservedObject var mainViewModel: MainViewModel
     var droppableAreas: Binding<[CGRect]>
     var showSkipButton: Bool
-
+    var currentPlayerIndex: Binding<Int>
+    
     private var center: CGPoint
     private let playersCircleRadius: Double
     private let angleBeetwenEachPlayer: Double
 
-    init(in size: CGSize, mainViewModel: MainViewModel, droppableAreas: Binding<[CGRect]>, showSkipButton: Bool) {
+    init(in size: CGSize, mainViewModel: MainViewModel, droppableAreas: Binding<[CGRect]>, showSkipButton: Bool, currentPlayerIndex: Binding<Int>) {
         self.size = size
         self.mainViewModel = mainViewModel
         self.droppableAreas = droppableAreas
         self.showSkipButton = showSkipButton
+        self.currentPlayerIndex = currentPlayerIndex
 
         // El circulo de los jugadores es más grande que el circulo principal
         self.playersCircleRadius = Double(size.width * 0.3 / 2) * 2.4
@@ -89,7 +91,10 @@ struct PlayersTable: View {
             Group {
                 if showSkipButton {
                     Button("Omitir") {
-                        
+                        mainViewModel.randomizeLocations()
+                        withAnimation(Animation.easeOut) {
+                            currentPlayerIndex.wrappedValue = mainViewModel.players.count
+                        }
                     }
                     .buttonStyle(
                         CuteCircularButton(

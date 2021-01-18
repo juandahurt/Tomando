@@ -33,6 +33,7 @@
 		3D6A0DC3259807FB00BA7BFB /* DisabableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A0DC2259807FB00BA7BFB /* DisabableArea.swift */; };
 		3D7335AD259541CB005BA913 /* CuteText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7335AC259541CB005BA913 /* CuteText.swift */; };
 		3D74F5712597C2430091F74A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74F5702597C2430091F74A /* Modal.swift */; };
+		3D80292A25B60A1C00974F42 /* ShuttingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80292925B60A1C00974F42 /* ShuttingDownView.swift */; };
 		3D8230CC25A80D1700392D51 /* CuteCircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8230CB25A80D1700392D51 /* CuteCircularButton.swift */; };
 		3D8230CF25A80F6A00392D51 /* Inconsolata-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D8230CE25A80F2600392D51 /* Inconsolata-Light.ttf */; };
 		3D8230D225A810C400392D51 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8230D125A810C400392D51 /* Loader.swift */; };
@@ -89,6 +90,7 @@
 		3D6A0DC2259807FB00BA7BFB /* DisabableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabableArea.swift; sourceTree = "<group>"; };
 		3D7335AC259541CB005BA913 /* CuteText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteText.swift; sourceTree = "<group>"; };
 		3D74F5702597C2430091F74A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		3D80292925B60A1C00974F42 /* ShuttingDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttingDownView.swift; sourceTree = "<group>"; };
 		3D8230CB25A80D1700392D51 /* CuteCircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuteCircularButton.swift; sourceTree = "<group>"; };
 		3D8230CE25A80F2600392D51 /* Inconsolata-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inconsolata-Light.ttf"; sourceTree = "<group>"; };
 		3D8230D125A810C400392D51 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				3DAE9B972596B65D00323156 /* GameCardView.swift */,
 				3DFC1E8225A916530037656C /* GameTerminalView.swift */,
 				3D27614F25AB5A920079DC7C /* GameBoard.swift */,
+				3D80292925B60A1C00974F42 /* ShuttingDownView.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				3DC4611C2596ACBF00B214EF /* MainViewModel.swift in Sources */,
 				3D7335AD259541CB005BA913 /* CuteText.swift in Sources */,
 				3DCE8C3225A95BAE00F9A37B /* Dice.swift in Sources */,
+				3D80292A25B60A1C00974F42 /* ShuttingDownView.swift in Sources */,
 				3D8230D225A810C400392D51 /* Loader.swift in Sources */,
 				3DB412E925AAB817001068BB /* DrinkingGameState.swift in Sources */,
 				3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */,

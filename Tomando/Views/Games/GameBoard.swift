@@ -18,6 +18,8 @@ struct GameBoard<Content: View>: View {
     var mainButtonText: String
     var mainButtonAction: () -> Void
     
+    @State private var shutDown = false
+    
     var content: Content
     
     init(title: String, leftPlayer: Player = .dummy, rightPlayer: Player = .dummy, disabled: Bool, mainButtonIsDisabled: Bool, mainButtonText: String, mainButtonAction: @escaping () -> Void, content: () -> Content) {
@@ -38,6 +40,7 @@ struct GameBoard<Content: View>: View {
                 Rectangle()
                     .fill(disabled ? disabledColor : Color.clear)
                     .frame(width: 144, height: 22)
+                    .padding(disabled ? .top : .all, disabled ? 70 : 0)
             } else {
                 CuteText(title, color: textColor, font: .primary(size: 20, isBold: true))
                     .transition(.slide)
@@ -92,11 +95,41 @@ struct GameBoard<Content: View>: View {
         .disabled(mainButtonIsDisabled)
     }
     
+    
+//  MARK: - Navigation Bar
+    var navigationBar: some View {
+        Group {
+            if disabled {
+                EmptyView()
+            } else {
+                NavigationBar(
+                    leading: EmptyView(),
+                    center: EmptyView(),
+                    trailing: Button(action: { shutDown = true }) {
+                        Image("Power")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
+                    .buttonStyle(
+                        CuteCircularButton(
+                            diameter: 40,
+                            yOffset: 3,
+                            mainColor: Color("Error"),
+                            darkColor: Color("Error-Dark"),
+                            lightColor: Color("Error-Light")
+                        )
+                    )
+                )
+                .padding(.top)
+            }
+        }
+    }
+    
 //  MARK: - Body
-    var body: some View {
+    var _body: some View {
         VStack {
+            navigationBar
             titleContainer
-                .padding(.top, 55)
             ZStack {
                 Rectangle()
                     .fill(disabled ? disabledColor : Color.clear)
@@ -121,6 +154,15 @@ struct GameBoard<Content: View>: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(backgroundColor)
+    }
+    
+    @ViewBuilder
+    var body: some View {
+        if shutDown {
+            ShuttingDownView()
+        } else {
+            _body
+        }
     }
     
     let backgroundColor = Color("Primary")

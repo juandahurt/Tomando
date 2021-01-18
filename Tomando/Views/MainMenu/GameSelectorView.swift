@@ -149,6 +149,9 @@ struct GameSelectorView: View {
                 }
             }
         }
+        .onAppear {
+            mainViewModel.reset()
+        }
     }
     
     let continueButtonPadding = EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20)

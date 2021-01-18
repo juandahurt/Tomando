@@ -41,8 +41,13 @@ class MainViewModel: ObservableObject {
     func setLocation(for player: Player, at location: Int) {
         bar.currentGame?.setLocation(for: player, at: location)
     }
-//    
-//    func setLocation(for player: Player, at location: Int) {
-//        bar.currentGame?.setLocation(for: player, at: location)
-//    }
+    
+    func randomizeLocations() {
+        bar.currentGame?.randomizeLocations()
+    }
+    
+    func reset() {
+        bar = Bar()
+        DrinkingGame.resetGames()
+    }
 }

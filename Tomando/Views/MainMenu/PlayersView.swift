@@ -14,14 +14,10 @@ struct PlayersView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var mainViewModel: MainViewModel
-    
     @State private var playerName: String = ""
     @State private var percentage: Double = 0
     @State private var barColor = Color("Error")
     
-    init(mainViewModel: MainViewModel) {
-        self.mainViewModel = mainViewModel
-    }
     
     func updateBarPercentage() -> Void {
         if let game = self.mainViewModel.bar.currentGame {
@@ -117,7 +113,7 @@ struct PlayersView: View {
                 ProgressBar(
                     percentage: percentage,
                     barColor: barColor,
-                    showIndicator: mainViewModel.players.count < mainViewModel.currentGame!.minPlayers
+                    showIndicator: mainViewModel.players.count < mainViewModel.currentGame?.minPlayers ?? 0
                 )
                 CuteText(String(DrinkingGame.maxPlayers), color: Color("White-Dark").opacity(0.2), font: .primary(size: 12))
                     .padding(.horizontal, 20)
@@ -126,13 +122,14 @@ struct PlayersView: View {
             NavigationLink(destination: PlayersLocationView(mainViewModel: mainViewModel)) {
                 Text("Continuar")
             }
+            .isDetailLink(false)
             .buttonStyle(
                 CutePrimaryButton(
                     mainColor: Color("Green"),
                     darkColor: Color("Green-Dark"),
                     lightColor: Color("Green-Light"),
                     font: .primary(size: 20, isBold: true),
-                    disabled: mainViewModel.players.count < mainViewModel.currentGame!.minPlayers
+                    disabled: mainViewModel.players.count < mainViewModel.currentGame?.minPlayers ?? 0
                 )
             )
             .padding(.all, 20)

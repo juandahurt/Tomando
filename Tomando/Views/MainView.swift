@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var appState: AppState
+    @State var rootIsActive = false
     
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
                 
-                NavigationLink(destination: GameSelectorView()) {
+                NavigationLink(
+                    destination: GameSelectorView(),
+                    isActive: $rootIsActive
+                ) {
                     Text("Empezar")
                 }
+                .isDetailLink(false)
                 .buttonStyle(
                     CutePrimaryButton(
                         mainColor: Color("Green"),
@@ -29,7 +35,7 @@ struct MainView: View {
                 .animation(.none)
                 
                 NavigationLink(destination: CreditsView()) {
-                    Text("Creditos")
+                    Text("Créditos")
                 }
                 .isDetailLink(false)
                 .buttonStyle(
@@ -53,6 +59,12 @@ struct MainView: View {
                 .navigationBarHidden(true)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.primary)
+            .onReceive(self.appState.$moveToMainMenu) { moveToMainMenu in
+                if moveToMainMenu {
+                    self.rootIsActive = false
+                    self.appState.moveToMainMenu = false
+                }
+            }
         }
     }
     
