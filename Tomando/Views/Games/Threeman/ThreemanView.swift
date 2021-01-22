@@ -96,7 +96,7 @@ struct ThreemanView: View {
                     Group {
                         if activeRules.isEmpty && mainButtonText == "OK" {
                             CuteText(
-                                "Nadie toma",
+                                "Nadie.",
                                 color: Color("Primary").opacity(0.5),
                                 font: Font.primary(size: 20, isBold: true)
                             )

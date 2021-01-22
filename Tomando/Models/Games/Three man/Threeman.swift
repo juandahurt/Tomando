@@ -20,8 +20,8 @@ class Threeman: DrinkingGame {
         self.rules.append(
             ThreemanRule(
                 id: 1,
-                description: "Si los dados suman 7, el jugador de la izquierda toma un shot.",
-                result: "Toma un shot el jugador a tu izquierda"
+                description: "Si los dados suman 7, pierde el jugador de la izquierda.",
+                result: "El jugador a tu izquierda"
             ) { state in
                 state.value.reduce(0, +) == 7
             }
@@ -29,8 +29,8 @@ class Threeman: DrinkingGame {
         self.rules.append(
             ThreemanRule(
                 id: 2,
-                description: "Si los dados suman 9, el jugador de la izquierda toma un shot.",
-                result: "Toma un shot el jugador a tu derecha"
+                description: "Si los dados suman 9, pierde el jugador de la derecha.",
+                result: "El jugador a tu derecha"
             ) { state in
                 state.value.reduce(0, +) == 9
             }
@@ -38,8 +38,8 @@ class Threeman: DrinkingGame {
         self.rules.append(
             ThreemanRule(
                 id: 3,
-                description: "Si los dados suman 11, el jugador toma un shot.",
-                result: "¡Tomas un shot!"
+                description: "Si los dados suman 11, pierde el jugador que lanzó los dados.",
+                result: "¡Tú mismo!"
             ) { state in
                 state.value.reduce(0, +) == 11
             }
@@ -47,10 +47,10 @@ class Threeman: DrinkingGame {
         self.rules.append(
             ThreemanRule(
                 id: 4,
-                description: "Si los dados suman 3 o contienen un 3, el triman toma un shot.",
-                result: "¡Toma el Triman!"
+                description: "Si los dados suman 3 o contienen un 3, pierde el triman.",
+                result: "¡Triman!"
             ) { state in
-                state.value.reduce(0, +) == 33 || state.value.contains(3)
+                state.value.reduce(0, +) == 3 || state.value.contains(3)
             }
         )
     }

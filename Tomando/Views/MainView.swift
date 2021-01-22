@@ -18,8 +18,8 @@ struct MainView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Image("Glasses")
-                    .padding(.bottom, 20)
+                Image("Putis")
+                    .padding(.bottom, 40)
                     .offset(x: 0, y: yOffset)
                 NavigationLink(
                     destination: GameSelectorView(),
