@@ -11,49 +11,51 @@ struct MainView: View {
     @EnvironmentObject var appState: AppState
     @State var rootIsActive = false
     @State var creditsIsActive = false
-    @State private var yOffset: CGFloat = 10
+    @State private var yOffset: CGFloat = 5
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                Image("Putis")
-                    .padding(.bottom, 40)
-                    .offset(x: 0, y: yOffset)
-                NavigationLink(
-                    destination: GameSelectorView(),
-                    isActive: $rootIsActive
-                ) {
-                    Text("Empezar")
-                }
-                .isDetailLink(false)
-                .buttonStyle(
-                    CutePrimaryButton(
-                        mainColor: Color("Green"),
-                        darkColor: Color("Green-Dark"),
-                        lightColor: Color("Green-Light"),
-                        font: .primary(size: 20, isBold: true)
+                Group {
+                    Image("Putis")
+                        .resizable()
+                        .frame(width: Responsive.redimension(157, on: .horizontal), height: Responsive.redimension(67, on: .vertical))
+                        .padding(.bottom, logoHPadding)
+                        .offset(x: 0, y: yOffset)
+                    NavigationLink(
+                        destination: GameSelectorView(),
+                        isActive: $rootIsActive
+                    ) {
+                        Text("Empezar")
+                    }
+                    .isDetailLink(false)
+                    .buttonStyle(
+                        CutePrimaryButton(
+                            mainColor: Color("Green"),
+                            darkColor: Color("Green-Dark"),
+                            lightColor: Color("Green-Light"),
+                            font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true)
+                        )
                     )
-                )
-                .padding(.horizontal, 50)
-                .animation(.none)
-                
-                NavigationLink(
-                    destination: CreditsView(),
-                    isActive: $creditsIsActive
-                ) {
-                    Text("Créditos")
-                }
-                .isDetailLink(false)
-                .buttonStyle(
-                    CuteSecondaryButton(
-                        font: .primary(size: 20, isBold: true)
+                    .animation(.none)
+                    
+                    NavigationLink(
+                        destination: CreditsView(),
+                        isActive: $creditsIsActive
+                    ) {
+                        Text("Créditos")
+                    }
+                    .isDetailLink(false)
+                    .buttonStyle(
+                        CuteSecondaryButton(
+                            font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true)
+                        )
                     )
-                )
-                .padding(.horizontal, 50)
+                }
                 .padding(.top)
-                .animation(.none)
+                .padding(.horizontal, mainHPadding)
                 
                 Spacer()
                 
@@ -62,8 +64,8 @@ struct MainView: View {
                     Spacer()
                     CuteText("juandahurt", color: textColor, font: textFont)
                 }
+                .padding(bottomTextPadding)
             }
-                .padding(padding)
                 .navigationBarHidden(true)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.primary)
@@ -83,7 +85,10 @@ struct MainView: View {
         }
     }
     
-    let padding = EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
     let textColor = Color("White-Dark").opacity(0.2)
-    let textFont: Font = .secondary(size: 12)
+    let textFont: Font = .secondary(size: Responsive.redimension(12, on: .vertical))
+    
+    private let logoHPadding: CGFloat = Responsive.redimension(35, on: .horizontal)
+    private let mainHPadding: CGFloat = Responsive.redimension(50, on: .horizontal)
+    private var bottomTextPadding: CGFloat = Responsive.redimension(13, on: .vertical)
 }

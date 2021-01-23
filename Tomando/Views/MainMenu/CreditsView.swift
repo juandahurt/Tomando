@@ -30,20 +30,27 @@ struct CreditsView: View {
     func dismissalText() -> some View {
         let text = showDismmiss ? "Toca en cualquier parte de la pantalla para regresar..." : ""
         
-        return CuteText(text, color: Color("White-Dark").opacity(0.4), font: .secondary(size: 12))
+        return CuteText(text, color: Color("White-Dark").opacity(0.5), font: .secondary(size: Responsive.redimension(12, on: .vertical)))
     }
     
     var body: some View {
         VStack {
             dismissalText()
                 .padding(.top)
-            Spacer()
-            VStack(spacing: 20) {
-                ForEach(messages, id: \.self) { message in
-                    CuteText(message, color: Color("White-Dark"), font: .secondary(size: 20))
+            ScrollView {
+                Spacer()
+                VStack(spacing: 20) {
+                    ForEach(messages, id: \.self) { message in
+                        CuteText(
+                            message,
+                            color: Color("White-Dark"),
+                            font: .secondary(size: Responsive.redimension(16, on: .vertical)
+                            )
+                        )
+                    }
                 }
+                Spacer()
             }
-            Spacer()
         }
         .padding(.horizontal)
         .offset(x: 0, y: yOffset)
