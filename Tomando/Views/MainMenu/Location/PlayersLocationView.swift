@@ -50,8 +50,8 @@ struct PlayersLocationView: View {
                                 } else {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(fillColor)
-                                        .frame(width: 70, height: 70)
-                                    CuteText(currentPlayer!.name, font: .primary(size: 14))
+                                        .frame(width: Responsive.redimension(60, on: .horizontal), height: Responsive.redimension(60, on: .horizontal))
+                                    CuteText(currentPlayer!.name, font: .primary(size: Responsive.redimension(14, on: .vertical)))
                                 }
                             }
                         }
@@ -65,19 +65,15 @@ struct PlayersLocationView: View {
         VStack {
             NavigationBar(
                 leading: BackButton(presentationMode: presentationMode),
-                center: CuteText("Ubicación", font: Font.primary(size: 22, isBold: true)),
+                center: CuteText("Ubicación", font: Font.primary(size: Responsive.redimension(22, on: .vertical), isBold: true)),
                 trailing: BackButton(presentationMode: presentationMode).hidden()
             )
             Group {
                 if currentPlayerIndex < mainViewModel.players.count {
-                    HStack {
-                        CuteText(
-                            "Arrastra el jugador a la ubicación que desees",
-                            color: Color("White-Dark").opacity(0.1),
-                            font: .primary(size: 12)
-                        )
-                        Spacer()
-                    }
+                    CuteText(
+                        "Arrastra el jugador a la ubicación que desees",
+                        color: Color("White-Dark").opacity(0.5),
+                        font: .primary(size: Responsive.redimension(12, on: .vertical)))
                     .padding(.leading)
                 }
             }
@@ -102,11 +98,11 @@ struct PlayersLocationView: View {
                     mainColor: Color("Green"),
                     darkColor: Color("Green-Dark"),
                     lightColor: Color("Green-Light"),
-                    font: .primary(size: 20, isBold: true),
+                    font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true),
                     disabled: currentPlayerIndex < mainViewModel.players.count
                 )
             )
-            .padding(20)
+            .padding(Responsive.redimension(20, on: .horizontal))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.primary)

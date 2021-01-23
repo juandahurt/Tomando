@@ -26,6 +26,6 @@ struct NavigationBar<L, C, T>: View where L: View, C: View, T: View {
             Spacer()
             trailingView
         }
-        .padding(.horizontal, 15)
+        .padding(.horizontal, Responsive.redimension(15, on: .horizontal))
     }
 }

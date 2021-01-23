@@ -37,22 +37,20 @@ struct CreditsView: View {
         VStack {
             dismissalText()
                 .padding(.top)
-            ScrollView {
+            VStack(spacing: 20) {
                 Spacer()
-                VStack(spacing: 20) {
-                    ForEach(messages, id: \.self) { message in
-                        CuteText(
-                            message,
-                            color: Color("White-Dark"),
-                            font: .secondary(size: Responsive.redimension(16, on: .vertical)
-                            )
+                ForEach(messages, id: \.self) { message in
+                    CuteText(
+                        message,
+                        color: Color("White-Dark"),
+                        font: .secondary(size: Responsive.redimension(16, on: .vertical)
                         )
-                    }
+                    )
+                    .padding(.horizontal)
                 }
                 Spacer()
             }
         }
-        .padding(.horizontal)
         .offset(x: 0, y: yOffset)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)

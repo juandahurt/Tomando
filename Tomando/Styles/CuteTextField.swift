@@ -13,10 +13,10 @@ struct CuteTextField: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .multilineTextAlignment(.center)
-            .frame(width: width, height: 43)
+            .frame(width: width, height: Responsive.redimension(43, on: .vertical))
             .background(color)
             .cornerRadius(10)
-            .font(.primary(size: 20))
+            .font(.primary(size: Responsive.redimension(20, on: .vertical)))
             .foregroundColor(foregroundColor)
     }
     

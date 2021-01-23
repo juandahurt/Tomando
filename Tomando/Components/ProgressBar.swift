@@ -58,7 +58,7 @@ struct ProgressBar: View {
             VStack {
                 RoundedRectangle(cornerRadius: 15)
                     .fill(lightColor)
-                    .frame(width: progressBarWdith > 0 ? progressBarWdith - 10 : 0, height: 3)
+                    .frame(width: progressBarWdith > 0 ? progressBarWdith - 10 : 0, height: Responsive.redimension(3, on: .vertical))
                     .padding(.top, 3)
                     .padding(.leading, 5)
                 Spacer()

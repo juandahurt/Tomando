@@ -78,7 +78,7 @@ struct PlayersTable: View {
                     }
                 }
             }
-            .frame(width: 70, height: 70)
+            .frame(width: Responsive.redimension(60, on: .horizontal), height: Responsive.redimension(60, on: .horizontal))
             .position(newPosition)
         }
     }
@@ -98,12 +98,12 @@ struct PlayersTable: View {
                     }
                     .buttonStyle(
                         CuteCircularButton(
-                            diameter: 80,
+                            diameter: Responsive.redimension(50, on: .horizontal),
                             yOffset: 5,
                             mainColor: Color("Blue"),
                             darkColor: Color("Blue-Dark"),
                             lightColor: Color("Blue-Light"),
-                            font: .primary(size: 14, isBold: true)
+                            font: .primary(size: Responsive.redimension(12, on: .vertical), isBold: true)
                         )
                     )
                 }

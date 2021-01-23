@@ -190,6 +190,7 @@
 		3D369BC72594F7B500B6DA31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D8230D425A8191600392D51 /* LoadingView.swift */,
 				3DCA154F2599095300CFE47A /* MainMenu */,
 				3DAE9B962596B63F00323156 /* Games */,
 				3D369BC82594F7F100B6DA31 /* MainView.swift */,
@@ -330,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				3D33091125B49CC50036836B /* Location */,
-				3D8230D425A8191600392D51 /* LoadingView.swift */,
 				3D38DC99259548C600EA0B02 /* GameSelectorView.swift */,
 				3D178F732596B1240074BEA7 /* PlayersView.swift */,
 				3D0BB72325B4F0CE00EC4254 /* CreditsView.swift */,

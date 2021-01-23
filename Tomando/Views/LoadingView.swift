@@ -15,7 +15,7 @@ struct LoadingView: View {
     @State private var isLoading = true
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    private let terminalHeight: CGFloat = 61
+    private let terminalHeight: CGFloat = Responsive.redimension(61, on: .vertical)
     
     @StateObject private var messagesViewModel: FunnyMessagesViewModel
     
@@ -30,10 +30,11 @@ struct LoadingView: View {
     // MARK: - Text
     var text: some View {
         HStack(spacing: 3) {
-            CuteText("Recuerda:", color: Color.primary.opacity(0.4), font: .primary(size: 12, isBold: true))
-            CuteText("Debes quedarte en la posición que escogiste", color: Color.primary.opacity(0.4), font: .primary(size: 12))
+            CuteText("Recuerda:", color: Color.primary.opacity(0.4), font: .primary(size: Responsive.redimension(12, on: .vertical), isBold: true))
+            CuteText("Debes quedarte en la posición que escogiste", color: Color.primary.opacity(0.4), font: .primary(size: Responsive.redimension(12, on: .vertical)))
         }
-        .padding(.top, 40)
+        .padding(.top, Responsive.redimension(40, on: .vertical
+        ))
     }
     
     // MARK: - Terminal
@@ -43,12 +44,12 @@ struct LoadingView: View {
                 .fill(Color.primary)
                 .frame(maxWidth: .infinity, maxHeight: terminalHeight)
             HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: Responsive.redimension(3, on: .vertical)) {
                     Group {
                         ForEach(messagesViewModel.messages) { message in
                             Group {
                                 if message.isVisible {
-                                    CuteText(message.text, color: Color("White-Dark"), font: .secondary(size: 10))
+                                    CuteText(message.text, color: Color("White-Dark"), font: .secondary(size: Responsive.redimension(10, on: .vertical)))
                                 }
                             }
                         }

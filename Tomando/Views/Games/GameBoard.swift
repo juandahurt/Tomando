@@ -39,10 +39,10 @@ struct GameBoard<Content: View>: View {
             if disabled || title.isEmpty {
                 Rectangle()
                     .fill(disabled ? disabledColor : Color.clear)
-                    .frame(width: 144, height: 22)
+                    .frame(width: 144, height: Responsive.redimension(22, on: .vertical))
                     .padding(disabled ? .top : .all, disabled ? 70 : 0)
             } else {
-                CuteText(title, color: textColor, font: .primary(size: 20, isBold: true))
+                CuteText(title, color: textColor, font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true))
                     .transition(.slide)
                     .animation(Animation.easeIn.speed(2))
                     .id("Titletext" + title)
@@ -64,13 +64,13 @@ struct GameBoard<Content: View>: View {
                 if disabled {
                     Rectangle()
                         .fill(disabledColor)
-                        .frame(width: 56, height: 9)
+                        .frame(width: 56, height: Responsive.redimension(9, on: .vertical))
                     Rectangle()
                         .fill(disabledColor)
-                        .frame(width: 31, height: 9)
+                        .frame(width: 31, height: Responsive.redimension(9, on: .vertical))
                 } else {
-                    CuteText(playerTitle, color: textColor, font: .primary(size: 10))
-                    CuteText(player.name, color: textColor, font: .primary(size: 10, isBold: true))
+                    CuteText(playerTitle, color: textColor, font: .primary(size: Responsive.redimension(10, on: .vertical)))
+                    CuteText(player.name, color: textColor, font: .primary(size: Responsive.redimension(10, on: .vertical), isBold: true))
                 }
             }
         }

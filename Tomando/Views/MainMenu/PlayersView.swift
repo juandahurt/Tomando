@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-// TODO: Al volver a la pantalla anterior y regresar, la comparacion para saber si
-//       el usuario puede continuar no funciona!
-
 struct PlayersView: View {
     @Environment(\.presentationMode) var presentationMode
     
@@ -37,7 +34,7 @@ struct PlayersView: View {
     func container(for player: Player) -> some View {
         VStack {
             HStack {
-                CuteText(player.name, color: Color("White-Dark").opacity(0.4), font: .primary(size: 16))
+                CuteText(player.name, color: Color("White-Dark").opacity(0.4), font: .primary(size: Responsive.redimension(16, on: .vertical)))
                 Spacer()
                 
             }
@@ -62,18 +59,18 @@ struct PlayersView: View {
                     Spacer(minLength: 0)
                 }
             }
-            .padding(.top, 5)
+            .padding(.top, Responsive.redimension(5, on: .vertical))
         }
-        .padding(.all, 20)
+        .padding(.all, Responsive.redimension(20, on: .horizontal))
     }
     
 //  MARK: - Form
     var form: some View {
         VStack(alignment: .leading, spacing: 2) {
-            CuteText("Nombre", color: Color("White-Dark").opacity(0.2), font: Font.primary(size: 16, isBold: true))
+            CuteText("Nombre", color: Color("White-Dark").opacity(0.2), font: Font.primary(size: Responsive.redimension(16, on: .vertical), isBold: true))
             HStack {
                 TextField("", text: $playerName)
-                    .textFieldStyle(CuteTextField(width: 212))
+                    .textFieldStyle(CuteTextField(width: Responsive.redimension(212, on: .horizontal)))
                     .textCase(.lowercase)
                 Button("Agregar") {
                     mainViewModel.objectWillChange.send()
@@ -88,7 +85,7 @@ struct PlayersView: View {
                         mainColor: Color("Blue"),
                         darkColor: Color("Blue-Dark"),
                         lightColor: Color("Blue-Light"),
-                        font: .primary(size: 18, isBold: true),
+                        font: .primary(size: Responsive.redimension(18, on: .vertical), isBold: true),
                         disabled: playerName == "" || mainViewModel.players.count == DrinkingGame.maxPlayers
                     )
                 )
@@ -96,7 +93,7 @@ struct PlayersView: View {
                 .padding(.leading)
             }
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, Responsive.redimension(20, on: .horizontal))
     }
     
 //  MARK: - Body
@@ -104,19 +101,21 @@ struct PlayersView: View {
         VStack {
             NavigationBar(
                 leading: BackButton(presentationMode: presentationMode),
-                center: CuteText("Jugadores", font: .primary(size: 20, isBold: true)),
+                center: CuteText("Jugadores", font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true)),
                 trailing: BackButton(presentationMode: presentationMode).hidden()
             )
             form
             players
             VStack(alignment: .trailing) {
                 ProgressBar(
+                    height: Responsive.redimension(12, on: .vertical),
+                    xPadding: Responsive.redimension(20, on: .horizontal),
                     percentage: percentage,
                     barColor: barColor,
                     showIndicator: mainViewModel.players.count < mainViewModel.currentGame?.minPlayers ?? 0
                 )
-                CuteText(String(DrinkingGame.maxPlayers), color: Color("White-Dark").opacity(0.2), font: .primary(size: 12))
-                    .padding(.horizontal, 20)
+                CuteText(String(DrinkingGame.maxPlayers), color: Color("White-Dark").opacity(0.2), font: .primary(size: Responsive.redimension(12, on: .vertical)))
+                    .padding(.trailing, Responsive.redimension(20, on: .horizontal))
             }
             
             NavigationLink(destination: PlayersLocationView(mainViewModel: mainViewModel)) {
@@ -128,11 +127,11 @@ struct PlayersView: View {
                     mainColor: Color("Green"),
                     darkColor: Color("Green-Dark"),
                     lightColor: Color("Green-Light"),
-                    font: .primary(size: 20, isBold: true),
+                    font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true),
                     disabled: mainViewModel.players.count < mainViewModel.currentGame?.minPlayers ?? 0
                 )
             )
-            .padding(.all, 20)
+            .padding(.all, Responsive.redimension(20, on: .horizontal))
         }
         .background(Color("Primary"))
         .navigationBarHidden(true)

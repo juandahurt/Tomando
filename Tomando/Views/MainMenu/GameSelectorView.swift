@@ -34,7 +34,7 @@ struct GameSelectorView: View {
             }
         }
             .padding(.horizontal)
-            .padding(.top, 50)
+            .padding(.top, Responsive.redimension(50, on: .vertical))
     }
     
     var gameRules: some View {
@@ -43,37 +43,37 @@ struct GameSelectorView: View {
                 CuteText(
                     gameToShowItsRules.description,
                     color: Color("Primary"),
-                    font: Font.primary(size: 14)
+                    font: Font.primary(size: Responsive.redimension(14, on: .vertical))
                 )
                 HStack(spacing: 3) {
                     CuteText(
                         "Jugadores:",
                         color: Color("Primary"),
-                        font: Font.primary(size: 12)
+                        font: Font.primary(size: Responsive.redimension(12, on: .vertical))
                     )
                     CuteText(
                         "\(gameToShowItsRules.minPlayers)+",
                         color: Color("Primary"),
-                        font: Font.primary(size: 12, isBold: true)
+                        font: Font.primary(size: Responsive.redimension(12, on: .vertical), isBold: true)
                     )
                     Spacer()
                 }
-                    .padding(.vertical)
+                    .padding()
                 VStack(alignment: .leading) {
                     CuteText(
                         "Reglas",
                         color: Color("Primary"),
-                        font: Font.primary(size: 16, isBold: true)
+                        font: Font.primary(size: Responsive.redimension(16, on: .vertical), isBold: true)
                     )
                     ForEach(gameToShowItsRules.rules) { rule in
                         HStack {
                             Circle()
                                 .fill(Color("Primary"))
-                                .frame(width: 5, height: 5)
+                                .frame(width: Responsive.redimension(5, on: .horizontal), height: Responsive.redimension(5, on: .horizontal))
                             CuteText(
                                 rule.description,
                                 color: Color("Primary"),
-                                font: Font.primary(size: 14)
+                                font: Font.primary(size: Responsive.redimension(14, on: .vertical))
                             )
                         }
                     }
@@ -85,12 +85,12 @@ struct GameSelectorView: View {
                 CuteText(
                     "Fuente:",
                     color: Color("Primary").opacity(0.4),
-                    font: Font.primary(size: 10)
+                    font: Font.primary(size: Responsive.redimension(10, on: .vertical))
                 )
                 CuteText(
                     "Wikipedia",
                     color: Color("Primary").opacity(0.4),
-                    font: Font.primary(size: 10, isBold: true)
+                    font: Font.primary(size: Responsive.redimension(10, on: .vertical), isBold: true)
                 )
             }
         }
@@ -99,8 +99,8 @@ struct GameSelectorView: View {
     var youCanSeeTheRulesText: some View {
         CuteText(
             "Si dejas presionado sobre un juego, puedes ver sus reglas.",
-            color: Color("White-Dark").opacity(0.2),
-            font: Font.primary(size: 12)
+            color: Color("White-Dark").opacity(0.6),
+            font: Font.primary(size: Responsive.redimension(12, on: .vertical))
         )
             .padding(.top)
             .padding(.horizontal)
@@ -111,7 +111,7 @@ struct GameSelectorView: View {
             VStack {
                 NavigationBar(
                     leading: BackButton(presentationMode: presentationMode),
-                    center: CuteText("Selección de juego", font: Font.primary(size: 22, isBold: true)),
+                    center: CuteText("Selección de juego", font: Font.primary(size: Responsive.redimension(22, on: .vertical), isBold: true)),
                     trailing: BackButton(presentationMode: presentationMode).hidden()
                 )
                 youCanSeeTheRulesText
@@ -126,12 +126,12 @@ struct GameSelectorView: View {
                             mainColor: Color("Green"),
                             darkColor: Color("Green-Dark"),
                             lightColor: Color("Green-Light"),
-                            font: .primary(size: 20, isBold: true),
+                            font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true),
                             disabled: mainViewModel.bar.currentGame == nil
                         )
                     )
                     .disabled(mainViewModel.bar.currentGame == nil)
-                    .padding(.all, 20)
+                    .padding(.all, Responsive.redimension(20, on: .horizontal))
             }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("Primary"))
@@ -141,7 +141,7 @@ struct GameSelectorView: View {
                     CuteText(
                         gameToShowItsRules.name,
                         color: Color("Primary"),
-                        font: Font.primary(size: 20, isBold: true)
+                        font: Font.primary(size: Responsive.redimension(20, on: .vertical), isBold: true)
                     )
                         .padding(.horizontal)
                         .padding(.top)

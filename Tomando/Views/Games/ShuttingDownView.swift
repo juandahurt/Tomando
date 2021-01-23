@@ -34,7 +34,7 @@ struct ShuttingDownView: View {
                             CuteText(
                                 messages[index],
                                 color: Color("White-Dark"),
-                                font: Font.secondary(size: 12)
+                                font: Font.secondary(size: Responsive.redimension(12, on: .vertical))
                             )
                         }
                     }

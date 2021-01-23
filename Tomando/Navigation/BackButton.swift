@@ -17,8 +17,10 @@ struct BackButton: View {
             ZStack {
                 Circle()
                     .fill(Color.primary)
-                    .frame(width: 50, height: 50)
+                    .frame(width: Responsive.redimension(50, on: .horizontal), height: Responsive.redimension(50, on: .horizontal))
                 Image("Back")
+                    .resizable()
+                    .frame(width: Responsive.redimension(18, on: .horizontal), height: Responsive.redimension(18, on: .horizontal))
             }
             .padding(.vertical)
         }

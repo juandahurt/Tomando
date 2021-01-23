@@ -16,12 +16,10 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: Responsive.redimension(15, on: .vertical)) {
                 Spacer()
                 Group {
                     Image("Putis")
-                        .resizable()
-                        .frame(width: Responsive.redimension(157, on: .horizontal), height: Responsive.redimension(67, on: .vertical))
                         .padding(.bottom, logoHPadding)
                         .offset(x: 0, y: yOffset)
                     NavigationLink(

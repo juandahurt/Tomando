@@ -23,11 +23,11 @@ struct GameCardView: View {
     var card: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
-                .fill(isSelected ? color.opacity(selectedOpacity) : Color.clear)
-                .frame(width: 131, height: 131)
+                .fill(isSelected ? color.opacity(selectedOpacity) : Color("Primary"))
+                .frame(width: cardWidth, height: cardWidth)
             RoundedRectangle(cornerRadius: 15)
-                .stroke(color.opacity(disabled ? disabledOpacity : opacity), lineWidth: 2)
-                .frame(width: 131, height: 131)
+                .stroke(color.opacity(disabled ? disabledOpacity : opacity), lineWidth: Responsive.redimension(2, on: .horizontal))
+                .frame(width: cardWidth, height: cardWidth)
         }
     }
     
@@ -48,7 +48,7 @@ struct GameCardView: View {
         return CuteText(
             "Jugadores: " + text,
             color: color.opacity(disabled ? disabledOpacity : opacity),
-            font: .primary(size: 10, isBold: true)
+            font: .primary(size: Responsive.redimension(10, on: .vertical), isBold: true)
         )
     }
     
@@ -57,17 +57,18 @@ struct GameCardView: View {
             card
             VStack {
                 icon
-                    .frame(width: 60, height: 60)
+                    .frame(width: Responsive.redimension(60, on: .horizontal), height: Responsive.redimension(60, on: .horizontal))
                 CuteText(
                     game.name, color: color.opacity(disabled ? disabledOpacity : 1),
-                    font: .primary(size: 16, isBold: true)
+                    font: .primary(size: Responsive.redimension(16, on: .vertical), isBold: true)
                 )
                 players
             }
         }
     }
     
-    let opacity: Double = 0.2
+    let opacity: Double = 0.3
     let disabledOpacity: Double = 0.1
     let selectedOpacity: Double = 0.1
+    let cardWidth = Responsive.redimension(131, on: .horizontal)
 }
