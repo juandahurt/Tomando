@@ -53,7 +53,7 @@ struct ThreemanView: View {
                 )
                 Spacer()
             } else {
-                HStack(spacing: 37) {
+                HStack(spacing: Responsive.redimension(37, on: .horizontal)) {
                     Spacer()
                     Dice(facing: gameViewModel.currentState.value[0])
                     Dice(facing: gameViewModel.currentState.value[1])
@@ -72,16 +72,16 @@ struct ThreemanView: View {
                     CuteText(
                         "Triman:",
                         color: Color("Primary").opacity(0.3),
-                        font: Font.primary(size: 16)
+                        font: Font.primary(size: Responsive.redimension(16, on: .vertical))
                     )
                     CuteText(
                         (gameViewModel.game as! Threeman).threeman!.name,
                         color: Color("Primary").opacity(0.3),
-                        font: Font.primary(size: 16, isBold: true)
+                        font: Font.primary(size: Responsive.redimension(16, on: .vertical), isBold: true)
                     )
                     Spacer()
                 }
-                .padding(30)
+                .padding(Responsive.redimension(30, on: .horizontal))
             }
         }
     }
@@ -91,21 +91,21 @@ struct ThreemanView: View {
             if isLoading {
                 EmptyView()
             } else {
-                VStack(spacing: 10) {
+                VStack(spacing: Responsive.redimension(10, on: .vertical)) {
                     Spacer()
                     Group {
                         if activeRules.isEmpty && mainButtonText == "OK" {
                             CuteText(
                                 "Nadie.",
                                 color: Color("Primary").opacity(0.5),
-                                font: Font.primary(size: 20, isBold: true)
+                                font: Font.primary(size: Responsive.redimension(20, on: .vertical), isBold: true)
                             )
                         } else {
                             ForEach(activeRules) { rule in
                                 CuteText(
                                     rule.result,
                                     color: Color("White-Dark"),
-                                    font: Font.primary(size: 20, isBold: true)
+                                    font: Font.primary(size: Responsive.redimension(20, on: .vertical), isBold: true)
                                 )
                             }
                         }
@@ -128,14 +128,14 @@ struct ThreemanView: View {
                     .fill(cardBackgroundColor)
                     .cornerRadius(15)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding(10)
+                    .padding(Responsive.redimension(10, on: .horizontal))
                 VStack {
                     threemanName
                     Spacer()
                     CuteText(
                         showNumber ? String(gameViewModel.currentState.value.reduce(0, +)) : "",
                         color: Color("Primary").opacity(0.5),
-                        font: Font.primary(size: 40, isBold: true)
+                        font: Font.primary(size: Responsive.redimension(40, on: .vertical), isBold: true)
                     )
                         .padding(.bottom)
                     dices

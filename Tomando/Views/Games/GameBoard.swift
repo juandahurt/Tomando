@@ -40,7 +40,7 @@ struct GameBoard<Content: View>: View {
                 Rectangle()
                     .fill(disabled ? disabledColor : Color.clear)
                     .frame(width: 144, height: Responsive.redimension(22, on: .vertical))
-                    .padding(disabled ? .top : .all, disabled ? 70 : 0)
+                    .padding(disabled ? .top : .all, disabled ? Responsive.redimension(70, on: .vertical) : 0)
             } else {
                 CuteText(title, color: textColor, font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true))
                     .transition(.slide)
@@ -83,12 +83,12 @@ struct GameBoard<Content: View>: View {
         }
         .buttonStyle(
             CuteCircularButton(
-                diameter: 78,
-                yOffset: 5,
+                diameter: Responsive.redimension(78, on: .horizontal),
+                yOffset: Responsive.redimension(5, on: .vertical),
                 mainColor: Color("Blue"),
                 darkColor: Color("Blue-Dark"),
                 lightColor: Color("Blue-Light"),
-                font: .primary(size: 20, isBold: true),
+                font: .primary(size: Responsive.redimension(20, on: .vertical), isBold: true),
                 disabled: mainButtonIsDisabled
             )
         )
@@ -108,19 +108,19 @@ struct GameBoard<Content: View>: View {
                     trailing: Button(action: { shutDown = true }) {
                         Image("Power")
                             .resizable()
-                            .frame(width: 20, height: 20)
+                            .frame(width: Responsive.redimension(20, on: .horizontal), height: Responsive.redimension(20, on: .horizontal))
                     }
                     .buttonStyle(
                         CuteCircularButton(
-                            diameter: 40,
-                            yOffset: 3,
+                            diameter: Responsive.redimension(40, on: .horizontal),
+                            yOffset: Responsive.redimension(3, on: .vertical),
                             mainColor: Color("Error"),
                             darkColor: Color("Error-Dark"),
                             lightColor: Color("Error-Light")
                         )
                     )
                 )
-                .padding(.top)
+                .padding(.top, Responsive.redimension(10, on: .vertical))
             }
         }
     }
@@ -138,19 +138,19 @@ struct GameBoard<Content: View>: View {
                     content
                 }
             }
-                .padding(.top, 26)
-                .padding(.horizontal, 15)
+                .padding(.top, Responsive.redimension(26, on: .vertical))
+                .padding(.horizontal, Responsive.redimension(15, on: .horizontal))
             HStack(alignment: .bottom) {
                 container(for: leftPlayer, locatedAt: .left)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, Responsive.redimension(15, on: .vertical))
                 Spacer()
                 mainButton
-                    .padding(.vertical, 20)
+                    .padding(.vertical, Responsive.redimension(10, on: .vertical))
                 Spacer()
                 container(for: rightPlayer, locatedAt: .right)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, Responsive.redimension(15, on: .vertical))
             }
-            .padding(.horizontal, 15)
+            .padding(.horizontal, Responsive.redimension(20, on: .horizontal))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(backgroundColor)

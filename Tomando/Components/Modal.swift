@@ -39,8 +39,8 @@ struct Modal<Content: View>: View {
                         }
                     }
                     .frame(maxWidth: size.width, maxHeight: size.height)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 120)
+                    .padding(.horizontal, Responsive.redimension(40, on: .horizontal))
+                    .padding(.vertical, Responsive.redimension(120, on: .vertical))
                 }
             } else {
                 EmptyView()

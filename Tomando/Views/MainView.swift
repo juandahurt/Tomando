@@ -58,7 +58,7 @@ struct MainView: View {
                 Spacer()
                 
                 HStack {
-                    CuteText("1.0.0", color: textColor, font: textFont)
+                    CuteText("1.0.1", color: textColor, font: textFont)
                     Spacer()
                     CuteText("juandahurt", color: textColor, font: textFont)
                 }

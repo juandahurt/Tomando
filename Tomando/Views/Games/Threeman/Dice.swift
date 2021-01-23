@@ -66,11 +66,11 @@ struct Dice: View {
 //  MARK: - Body
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 8)
+            RoundedRectangle(cornerRadius: Responsive.redimension(8, on: .horizontal))
                 .fill(shadowColor)
                 .frame(width: diceSize.width, height: diceSize.height)
-                .offset(x: 0, y: 5)
-            RoundedRectangle(cornerRadius: 8)
+                .offset(x: 0, y: Responsive.redimension(5, on: .vertical))
+            RoundedRectangle(cornerRadius: Responsive.redimension(8, on: .horizontal))
                 .fill(backgroundColor)
                 .frame(width: diceSize.width, height: diceSize.height)
             GeometryReader { geometry in
@@ -87,9 +87,9 @@ struct Dice: View {
     let backgroundColor: Color = Color("White-Dark")
     let shadowColor: Color = Color("Gray")
     
-    let circleDiameter: CGFloat = 18
+    let circleDiameter: CGFloat = Responsive.redimension(18, on: .horizontal)
     let circleColor: Color = Color("Primary")
-    let diceSize: CGSize = CGSize(width: 110, height: 110)
+    let diceSize: CGSize = CGSize(width: Responsive.redimension(110, on: .horizontal), height: Responsive.redimension(110, on: .horizontal))
     
     
 //  MARK: - Dice Point
@@ -97,10 +97,10 @@ struct Dice: View {
         var id: Int
         var point: CGPoint
         
-        static let diceSize: CGSize = CGSize(width: 110, height: 110)
-        static let xOffset: CGFloat = 16
-        static let yOffset: CGFloat = 17
-        static let leftOffset: CGFloat = 5
+        static let diceSize: CGSize = CGSize(width: Responsive.redimension(110, on: .horizontal), height: Responsive.redimension(110, on: .horizontal))
+        static let xOffset: CGFloat = Responsive.redimension(16, on: .horizontal)
+        static let yOffset: CGFloat = Responsive.redimension(17, on: .vertical)
+        static let leftOffset: CGFloat = Responsive.redimension(5, on: .horizontal)
         
         static let topLeft = DicePoint(id: 1, point: CGPoint(x: xOffset + leftOffset, y: yOffset))
         static let topRight = DicePoint(id: 2, point: CGPoint(x: diceSize.width - xOffset, y: yOffset))

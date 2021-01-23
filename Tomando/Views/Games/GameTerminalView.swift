@@ -37,7 +37,7 @@ struct GameTerminalView: View {
         let text = goToNextViewActivated ? "Toca cualquier parte de la pantalla para comenzar..." : ""
         return CuteText(
             text,
-            font: Font.secondary(size: 12)
+            font: Font.secondary(size: Responsive.redimension(12, on: .vertical))
         )
     }
     
@@ -49,14 +49,14 @@ struct GameTerminalView: View {
                         CuteText(
                             gameViewModel.log[index].text,
                             color: pickTheRightColor(for: gameViewModel.log[index].level),
-                            font: Font.secondary(size: 12)
+                            font: Font.secondary(size: Responsive.redimension(12, on: .vertical))
                         )
                     }
                 }
             }
             tapToStart
         }
-        .padding()
+        .padding(Responsive.redimension(20, on: .horizontal))
     }
     
     var _body: some View {

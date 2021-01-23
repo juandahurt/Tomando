@@ -40,7 +40,7 @@ struct ShuttingDownView: View {
                     }
                 }
             }
-            .padding()
+            .padding(Responsive.redimension(20, on: .horizontal))
         }
         .onReceive(timer) { _ in
             messageIndex += 1
