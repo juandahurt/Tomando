@@ -15,8 +15,9 @@ struct ProgressBar: View {
     var progressBarWdith: CGFloat
     var barColor: Color
     var showIndicator: Bool
+    var indicatorPercentage: CGFloat
     
-    init(width: CGFloat = .infinity, height: CGFloat = 12, xPadding: CGFloat = 20, percentage: Double, barColor: Color, showIndicator: Bool = true) {
+    init(width: CGFloat = .infinity, height: CGFloat = Responsive.redimension(12, on: .vertical), xPadding: CGFloat = 20, percentage: Double, barColor: Color, showIndicator: Bool = true, indicatorPercentage: CGFloat) {
         self.height = height
         if width == .infinity {
             self.width = UIScreen.main.bounds.width - 2 * xPadding
@@ -28,14 +29,15 @@ struct ProgressBar: View {
         self.progressBarWdith = self.width * CGFloat(percentage)
         self.barColor = barColor
         self.showIndicator = showIndicator
+        self.indicatorPercentage = indicatorPercentage
     }
     
     func indicator(in size: CGSize) -> some View {
         Group {
             if showIndicator {
                 Path { path in
-                    path.move(to: CGPoint(x: width * 0.3, y: 2))
-                    path.addLine(to: CGPoint(x: width * 0.3, y: height + 2))
+                    path.move(to: CGPoint(x: width * indicatorPercentage, y: Responsive.redimension(2, on: .vertical)))
+                    path.addLine(to: CGPoint(x: width * indicatorPercentage, y: height + Responsive.redimension(2, on: .vertical)))
                 }
                 .stroke(Color("Green"), style: StrokeStyle(lineWidth: 1.5, dash: [2]))
             } else {

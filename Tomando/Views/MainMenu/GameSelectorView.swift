@@ -31,6 +31,7 @@ struct GameSelectorView: View {
                             showModal = true
                         }
                     }
+                    .padding(.bottom, Responsive.redimension(20, on: .vertical))
             }
         }
             .padding(.horizontal)

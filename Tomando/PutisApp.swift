@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct TomandoApp: App {
+struct PutisApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()

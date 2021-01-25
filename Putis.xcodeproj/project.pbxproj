@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D0BB72425B4F0CE00EC4254 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0BB72325B4F0CE00EC4254 /* CreditsView.swift */; };
+		3D176DFC25BCD7B100E4B95D /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D176DFB25BCD7B100E4B95D /* Coin.swift */; };
 		3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D178F732596B1240074BEA7 /* PlayersView.swift */; };
 		3D17F670259A829500D430FA /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */; };
 		3D1BB67025AF5A5D000E45A7 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1BB66F25AF5A5D000E45A7 /* Bar.swift */; };
@@ -16,7 +17,7 @@
 		3D27615025AB5A920079DC7C /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27614F25AB5A920079DC7C /* GameBoard.swift */; };
 		3D33090F25B48A640036836B /* DraggableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33090E25B48A640036836B /* DraggableContainer.swift */; };
 		3D33091325B49CFF0036836B /* PlayersTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33091225B49CFF0036836B /* PlayersTable.swift */; };
-		3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BB72594F78B00B6DA31 /* TomandoApp.swift */; };
+		3D369BB82594F78B00B6DA31 /* PutisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BB72594F78B00B6DA31 /* PutisApp.swift */; };
 		3D369BBC2594F78C00B6DA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D369BBB2594F78C00B6DA31 /* Assets.xcassets */; };
 		3D369BBF2594F78C00B6DA31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D369BBE2594F78C00B6DA31 /* Preview Assets.xcassets */; };
 		3D369BC92594F7F100B6DA31 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D369BC82594F7F100B6DA31 /* MainView.swift */; };
@@ -42,6 +43,8 @@
 		3D8230D525A8191600392D51 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8230D425A8191600392D51 /* LoadingView.swift */; };
 		3D8230D825A81BD200392D51 /* FunnyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8230D725A81BD200392D51 /* FunnyMessage.swift */; };
 		3D882FD6259962DD00100183 /* Double+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D882FD5259962DD00100183 /* Double+Radians.swift */; };
+		3D89C2BF25BE191F006DB4A6 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D89C2BE25BE191F006DB4A6 /* CoinView.swift */; };
+		3D89C2C225BE221B006DB4A6 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D89C2C125BE221B006DB4A6 /* Glass.swift */; };
 		3D8BE0B925AAB9F2001DF000 /* ThreemanRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE0B825AAB9F2001DF000 /* ThreemanRule.swift */; };
 		3DAE9B982596B65D00323156 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE9B972596B65D00323156 /* GameCardView.swift */; };
 		3DB412E225AAB772001068BB /* DrinkingGameRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB412E125AAB772001068BB /* DrinkingGameRule.swift */; };
@@ -65,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		3D0BB72325B4F0CE00EC4254 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		3D176DFB25BCD7B100E4B95D /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		3D178F732596B1240074BEA7 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		3D17F66E259A7B0C00D430FA /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		3D1BB66F25AF5A5D000E45A7 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 		3D33090E25B48A640036836B /* DraggableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableContainer.swift; sourceTree = "<group>"; };
 		3D33091225B49CFF0036836B /* PlayersTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTable.swift; sourceTree = "<group>"; };
 		3D369BB42594F78B00B6DA31 /* Putis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Putis.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D369BB72594F78B00B6DA31 /* TomandoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomandoApp.swift; sourceTree = "<group>"; };
+		3D369BB72594F78B00B6DA31 /* PutisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutisApp.swift; sourceTree = "<group>"; };
 		3D369BBB2594F78C00B6DA31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D369BBE2594F78C00B6DA31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3D369BC02594F78C00B6DA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		3D8230D425A8191600392D51 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3D8230D725A81BD200392D51 /* FunnyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyMessage.swift; sourceTree = "<group>"; };
 		3D882FD5259962DD00100183 /* Double+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Radians.swift"; sourceTree = "<group>"; };
+		3D89C2BE25BE191F006DB4A6 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
+		3D89C2C125BE221B006DB4A6 /* Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
 		3D8BE0B825AAB9F2001DF000 /* ThreemanRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreemanRule.swift; sourceTree = "<group>"; };
 		3DAE9B972596B65D00323156 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
 		3DB412E125AAB772001068BB /* DrinkingGameRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingGameRule.swift; sourceTree = "<group>"; };
@@ -133,6 +139,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D176DFA25BCD7A600E4B95D /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				3D176DFB25BCD7B100E4B95D /* Coin.swift */,
+			);
+			path = Coin;
+			sourceTree = "<group>";
+		};
 		3D33091125B49CC50036836B /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +185,7 @@
 				3D369BCC2594F86500B6DA31 /* Styles */,
 				3D369BCB2594F85700B6DA31 /* Components */,
 				3D369BC72594F7B500B6DA31 /* Views */,
-				3D369BB72594F78B00B6DA31 /* TomandoApp.swift */,
+				3D369BB72594F78B00B6DA31 /* PutisApp.swift */,
 				3D369BBB2594F78C00B6DA31 /* Assets.xcassets */,
 				3D369BC02594F78C00B6DA31 /* Info.plist */,
 				3D369BBD2594F78C00B6DA31 /* Preview Content */,
@@ -262,9 +276,19 @@
 			path = Responsive;
 			sourceTree = "<group>";
 		};
+		3D89C2BD25BE18E0006DB4A6 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				3D89C2BE25BE191F006DB4A6 /* CoinView.swift */,
+				3D89C2C125BE221B006DB4A6 /* Glass.swift */,
+			);
+			path = Coin;
+			sourceTree = "<group>";
+		};
 		3DAE9B962596B63F00323156 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				3D89C2BD25BE18E0006DB4A6 /* Coin */,
 				3DFC1E8125A9160E0037656C /* Threeman */,
 				3DAE9B972596B65D00323156 /* GameCardView.swift */,
 				3DFC1E8225A916530037656C /* GameTerminalView.swift */,
@@ -277,6 +301,7 @@
 		3DB412E025AAB758001068BB /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				3D176DFA25BCD7A600E4B95D /* Coin */,
 				3DB412EC25AAB968001068BB /* Three man */,
 				3D4AB9CF25B0E2A30064EDD0 /* StatefulGame.swift */,
 				3DC461132596AB3C00B214EF /* DrinkingGame.swift */,
@@ -455,15 +480,18 @@
 				3D4AB9D025B0E2A30064EDD0 /* StatefulGame.swift in Sources */,
 				3D8BE0B925AAB9F2001DF000 /* ThreemanRule.swift in Sources */,
 				3D8230CC25A80D1700392D51 /* CuteCircularButton.swift in Sources */,
+				3D89C2C225BE221B006DB4A6 /* Glass.swift in Sources */,
 				3DC4611C2596ACBF00B214EF /* MainViewModel.swift in Sources */,
 				3D7335AD259541CB005BA913 /* CuteText.swift in Sources */,
 				3DCE8C3225A95BAE00F9A37B /* Dice.swift in Sources */,
 				3D80292A25B60A1C00974F42 /* ShuttingDownView.swift in Sources */,
 				3D8230D225A810C400392D51 /* Loader.swift in Sources */,
 				3DB412E925AAB817001068BB /* DrinkingGameState.swift in Sources */,
+				3D176DFC25BCD7B100E4B95D /* Coin.swift in Sources */,
 				3D55DCA425BC92D9001CB6AE /* Responsive.swift in Sources */,
-				3D369BB82594F78B00B6DA31 /* TomandoApp.swift in Sources */,
+				3D369BB82594F78B00B6DA31 /* PutisApp.swift in Sources */,
 				3D33090F25B48A640036836B /* DraggableContainer.swift in Sources */,
+				3D89C2BF25BE191F006DB4A6 /* CoinView.swift in Sources */,
 				3DFC1E7F25A90EBE0037656C /* FunnyMessagesViewModel.swift in Sources */,
 				3DBA89DA25AD5B0800E63718 /* CuteSecondaryButton.swift in Sources */,
 				3D178F742596B1240074BEA7 /* PlayersView.swift in Sources */,
@@ -607,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Putis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -633,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Putis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

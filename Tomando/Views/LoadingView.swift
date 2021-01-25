@@ -105,12 +105,7 @@ struct LoadingView: View {
         if isLoading {
             _body
         } else {
-            switch game {
-            case is Threeman:
-                GameTerminalView(for: game)
-            default:
-                EmptyView()
-            }
+            GameTerminalView(for: game)
         }
     }
 }

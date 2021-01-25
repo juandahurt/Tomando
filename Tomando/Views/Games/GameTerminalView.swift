@@ -87,15 +87,22 @@ struct GameTerminalView: View {
         }
     }
     
-    @ViewBuilder
-    var body: some View {
-        if goToNextViewClicked {
+    func chooseNextView() -> some View {
+        return Group {
             switch gameViewModel.game {
                 case is Threeman:
                     ThreemanView(gameViewModel: gameViewModel)
+                case is Coin:
+                    CoinView(gameViewModel: gameViewModel)
                 default:
                     EmptyView()
-                }
+            }
+        }
+    }
+    
+    var body: some View {
+        if goToNextViewClicked {
+            chooseNextView()
         } else {
             _body
         }

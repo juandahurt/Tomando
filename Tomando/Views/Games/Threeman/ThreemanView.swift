@@ -54,10 +54,10 @@ struct ThreemanView: View {
                 Spacer()
             } else {
                 HStack(spacing: Responsive.redimension(37, on: .horizontal)) {
-                    Spacer()
+                    Spacer(minLength: 0)
                     Dice(facing: gameViewModel.currentState.value[0])
                     Dice(facing: gameViewModel.currentState.value[1])
-                    Spacer()
+                    Spacer(minLength: 0)
                 }
             }
         }

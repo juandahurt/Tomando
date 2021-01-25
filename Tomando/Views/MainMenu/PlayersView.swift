@@ -112,7 +112,8 @@ struct PlayersView: View {
                     xPadding: Responsive.redimension(20, on: .horizontal),
                     percentage: percentage,
                     barColor: barColor,
-                    showIndicator: mainViewModel.players.count < mainViewModel.currentGame?.minPlayers ?? 0
+                    showIndicator: mainViewModel.players.count < mainViewModel.currentGame?.minPlayers ?? 0,
+                    indicatorPercentage: CGFloat(Double(mainViewModel.currentGame?.minPlayers ?? 0) / Double(DrinkingGame.maxPlayers))
                 )
                 CuteText(String(DrinkingGame.maxPlayers), color: Color("White-Dark").opacity(0.2), font: .primary(size: Responsive.redimension(12, on: .vertical)))
                     .padding(.trailing, Responsive.redimension(20, on: .horizontal))

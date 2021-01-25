@@ -80,11 +80,12 @@ extension DrinkingGame {
     
     static var games: [DrinkingGame] = [
         Threeman(),
+        Coin(),
         .disabled
     ]
     
     static func resetGames() {
-        DrinkingGame.games = [Threeman(), .disabled]
+        DrinkingGame.games = [Threeman(), Coin(), .disabled]
     }
 }
 
